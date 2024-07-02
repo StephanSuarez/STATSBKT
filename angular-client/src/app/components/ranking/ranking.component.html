@@ -1,0 +1,25 @@
+<div class="ranking-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>Rebotes</th>
+        <th>Asistencias</th>
+        <th>Puntos Totales</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let team of teams">
+        <td>
+          <a [href]="team.teamUrl">
+            <img [src]="team.teamLogo" alt="Logo" class="team-logo">
+            {{ team.teamName }}
+          </a>
+        </td>
+        <td>{{ team.rebounds }}</td>
+        <td>{{ team.assists }}</td>
+        <td>{{ team.totalPoints }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

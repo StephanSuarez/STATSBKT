@@ -1,3 +1,25 @@
-<p>estadisticas works!</p>
-<app-card></app-card>
-<app-card-team></app-card-team>
+<div class="estadisticas-container">
+  <table>
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>Promedio de Puntos</th>
+        <th>Victorias</th>
+        <th>Pérdidas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let stat of stats">
+        <td>
+          <a [href]="stat.teamUrl">
+            <img [src]="stat.teamLogo" alt="Logo" class="team-logo">
+            {{ stat.teamName }}
+          </a>
+        </td>
+        <td>{{ stat.avgPoints }}</td>
+        <td>{{ stat.wins }}</td>
+        <td>{{ stat.losses }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

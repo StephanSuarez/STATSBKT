@@ -1,12 +1,14 @@
 import { Component } from '@angular/core';
+import { CardTeamComponent } from '../../components/card-team/card-team.component';
+
 
 @Component({
   selector: 'app-equipos',
   standalone: true,
-  imports: [],
+  imports: [CardTeamComponent],
   templateUrl: './equipos.component.html',
   styleUrl: './equipos.component.css'
 })
-export class EquiposComponente {
+export class EquiposComponent {
 
 }

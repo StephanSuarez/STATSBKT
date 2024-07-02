@@ -1,9 +1,6 @@
-.estadisticas-container {
+.ranking-container {
   width: 100%;
-  max-width: 1250px;
   margin: 0 auto;
-  padding: 0 15px;
-  box-sizing: border-box;
 }
 
 table {
@@ -35,16 +32,4 @@ tr:hover {
   height: 20px;
   margin-right: 8px;
   vertical-align: middle;
-}
-
-@media (max-width: 600px) {
-  th, td {
-    padding: 4px;
-    font-size: 12px;
-  }
-
-  .team-logo {
-    width: 15px;
-    height: 15px;
-  }
 }
