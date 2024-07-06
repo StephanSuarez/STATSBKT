@@ -1,5 +1,5 @@
 export class CreateUsuarioDto {
     nombreUsuario: string
-    password: string
+    numero: number
     equipoId: number
 }

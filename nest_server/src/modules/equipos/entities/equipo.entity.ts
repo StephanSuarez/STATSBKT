@@ -1,5 +1,5 @@
-import { Juego } from "src/modulos/juegos/entities/juego.entity";
-import { Usuario } from "src/modulos/usuarios/entities/usuario.entity";
+import { Juego } from "src/modules/juegos/entities/juego.entity";
+import { Usuario } from "src/modules/usuarios/entities/usuario.entity";
 import { Column, Entity, ManyToMany, OneToMany, PrimaryGeneratedColumn } from "typeorm";
 
 @Entity()
@@ -16,9 +16,9 @@ export class Equipo {
     @OneToMany(() => Usuario, usuario => usuario.equipo)
     usuarios: Usuario[];
 
-    @OneToMany(() => Juego, juego => juego.equipoUcundinamarca)
-    juegosUcundinamarca: Juego[];
+    @OneToMany(() => Juego, juego => juego.EquipoA)
+    equipoA: Juego[];
 
-    @OneToMany(() => Juego, juego => juego.equipoOtro)
-    juegosOtro: Juego[];
+    @OneToMany(() => Juego, juego => juego.EquipoB)
+    equipoB: Juego[];
 }

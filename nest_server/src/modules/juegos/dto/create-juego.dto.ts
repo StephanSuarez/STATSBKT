@@ -10,6 +10,6 @@ export class CreateJuegoDto {
     rebotes: number
     asistencias: number
     jugadorId: any
-    equipoUcundinamarcaId: any
-    equipoOtroId: any
+    equipoAId: any
+    equipoBId: any
 }
