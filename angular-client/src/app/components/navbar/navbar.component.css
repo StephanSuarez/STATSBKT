@@ -4,8 +4,12 @@ a{
   color: #000000;
 }
 
-#nav{
+#nav, .dropdown-menu{
   background-color: #E84624 !important; 
+}
+
+.dropdown-item:hover {
+  background-color: #8D1616 !important; 
 }
 
 a{

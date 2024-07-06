@@ -1,4 +1,5 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-card',
@@ -8,5 +9,11 @@ import { Component } from '@angular/core';
   styleUrl: './card.component.css'
 })
 export class CardComponent {
+  constructor(private router: Router) {}
 
+  @Input() player: any;
+  
+  goToView(judagorId: string) {
+    this.router.navigate(['/jugador'], { queryParams: { id: judagorId } });
+  }
 }

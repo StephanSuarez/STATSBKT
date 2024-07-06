@@ -1,0 +1,12 @@
+<div class="leads-container">
+  <div class="leads-section" *ngFor="let section of leadsSections">
+    <div class="leads-header">
+      <h3>{{ section.title }}</h3>
+    </div>
+    <div class="leads-content">
+      <div class="leads-column" *ngFor="let lead of section.leads">
+        <app-card [player]="lead"></app-card>
+      </div>
+    </div>
+  </div>
+</div>
