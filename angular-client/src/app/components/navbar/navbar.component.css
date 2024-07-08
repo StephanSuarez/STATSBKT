@@ -1,21 +1,44 @@
-      
-a{
+a {
   text-decoration: none;
   color: #000000;
 }
 
-#nav, .dropdown-menu{
-  background-color: #E84624 !important; 
+#nav {
+  background-color: #140e0d !important; 
 }
 
-.dropdown-item:hover {
-  background-color: #8D1616 !important; 
+.nav-link:hover {
+  background-color: #544e4e !important; 
 }
 
-a{
+.nav-link:active {
+  background-color: #544e4e !important; 
+  transform: scale(0.95); /* Reduce el tamaño del botón */
+}
+
+a {
   color: #fff !important;
 }
 
-#logo{
-  width: 100px;
+#logo {
+  width: 90px;
+}
+
+.logo-container {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Estilos para la clase active */
+.nav-item .nav-link.active,
+.nav-link.navbar-brand.active {
+  background-color: #544e4e !important; /* Cambia este color al que prefieras */
+  color: #fff !important;
+}
+
+/* Ajuste de margen para los enlaces de la izquierda */
+.navbar-nav {
+  margin-left: 0;
 }
