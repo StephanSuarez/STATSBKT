@@ -1,5 +1,5 @@
-import { Equipo } from 'src/modulos/equipos/entities/equipo.entity';
-import { Usuario } from 'src/modulos/usuarios/entities/usuario.entity';
+import { Equipo } from 'src/modules/equipos/entities/equipo.entity';
+import { Usuario } from 'src/modules/usuarios/entities/usuario.entity';
 import { Entity, Column, PrimaryGeneratedColumn, ManyToMany, ManyToOne } from 'typeorm';
 
 @Entity()
@@ -40,10 +40,10 @@ export class Juego {
     @ManyToOne(() => Usuario, usuario => usuario.juegos)
     jugador: Usuario;
 
-    @ManyToOne(() => Equipo, equipo => equipo.juegosUcundinamarca)
-    equipoUcundinamarca: Equipo;
+    @ManyToOne(() => Equipo, equipo => equipo.equipoA)
+    EquipoA: Equipo;
 
-    @ManyToOne(() => Equipo, equipo => equipo.juegosOtro)
-    equipoOtro: Equipo;
+    @ManyToOne(() => Equipo, equipo => equipo.equipoB)
+    EquipoB: Equipo;
 }
 
