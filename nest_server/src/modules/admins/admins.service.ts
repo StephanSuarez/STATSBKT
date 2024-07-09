@@ -1,4 +1,4 @@
-import { Injectable } from '@nestjs/common';
+import { HttpException, Injectable } from '@nestjs/common';
 import { CreateAdminDto } from './dto/create-admin.dto';
 import { UpdateAdminDto } from './dto/update-admin.dto';
 import { InjectRepository } from '@nestjs/typeorm';
@@ -30,16 +30,15 @@ export class AdminsService {
     const adminFound = await this.adminRepository.findOne({ where: {user} });
 
     if (!adminFound) {
-      throw new Error('Admin not found');
+      throw new HttpException('Admin not found', 404);
     }
 
     const isPasswordValid = await compare(password, adminFound.password);
     if (!isPasswordValid) {
-      throw new Error('Invalid password');
+      throw new HttpException('Password is not valid', 403)
     }
 
-    console.log(adminFound)
-    return adminFound;
+    return true;
   }
 
   findAll() {
