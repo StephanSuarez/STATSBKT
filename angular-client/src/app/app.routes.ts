@@ -6,6 +6,11 @@ import { EstadisticasComponent } from './views/estadisticas/estadisticas.compone
 import { LideresComponent } from './views/lideres/lideres.component';
 import { EquipoComponent } from './views/equipo/equipo.component';
 import { JugadorComponent } from './views/jugador/jugador.component';
+import { AdminComponent } from './views/adminPanel/admin/admin.component';
+import { MatchesComponent } from './views/adminPanel/matches/matches.component';
+import { PlayersComponent } from './views/adminPanel/players/players.component';
+import { TeamsComponent } from './views/adminPanel/teams/teams.component';
+import { AuthGuard } from './auth/admin.guard';
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
@@ -14,5 +19,12 @@ export const routes: Routes = [
   { path: 'estadisticas', component: EstadisticasComponent },
   { path: 'lideres', component: LideresComponent },
   { path: 'equipo', component: EquipoComponent },
-  { path: 'jugador', component: JugadorComponent}
+  { path: 'jugador', component: JugadorComponent},
+
+  // ADMIN
+  { path: 'admin-panel', component: AdminComponent, canActivate: [AuthGuard]},
+  { path: 'admin-players', component: PlayersComponent, canActivate: [AuthGuard]},
+  { path: 'admin-teams', component: TeamsComponent, canActivate: [AuthGuard]},
+  { path: 'admin-matches', component: MatchesComponent, canActivate: [AuthGuard]}
+
 ];
