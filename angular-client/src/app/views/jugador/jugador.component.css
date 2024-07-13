@@ -1,65 +1,82 @@
-.player-view {
+.player-profile {
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 800px;
+  max-width: 1200px;
   margin: 0 auto;
+  background-color: #004933; /* Verde */
+  color: #fff;
+  padding: 20px;
+  border-radius: 10px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s;
 }
 
-.player-avatar {
+
+.player-header {
+  display: flex;
+  width: 100%;
+  justify-content: space-between;
+  align-items: center;
+  padding-bottom: 20px;
   margin-bottom: 20px;
+}
+
+.team-logo img {
+  width: 40px;
+  position: absolute;
+  top: 70px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .player-avatar img {
   width: 150px;
   height: 150px;
+  margin-top: 10px;
+  margin-left: 30px;
   border-radius: 50%;
   object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
-.player-stats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
+.player-info-header {
+  text-align: center;
+  flex: 1;
 }
 
-.main-stats {
+.player-info-header h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.player-info-header h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.player-stats-table {
   display: flex;
+  flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  margin-bottom: 20px;
+  background-color: #000; /* Negro */
+  padding: 20px;
+  border-radius: 10px;
 }
 
-.main-stats .stat {
+.player-stats-table .stat {
+  width: 150px;
   text-align: center;
+  margin: 10px 0;
+  background-color: #f7ce19; /* Amarillo */
+  color: #000; /* Negro */
+  padding: 10px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.side-stats {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  width: 100%;
-}
-
-.side-stats .stat {
-  text-align: center;
-  margin-bottom: 10px;
-}
-
-@media (min-width: 600px) {
-  .player-stats {
-    flex-direction: row;
-    justify-content: space-between;
-  }
-
-  .main-stats {
-    flex-direction: column;
-    align-items: center;
-    width: 50%;
-  }
-
-  .side-stats {
-    width: 50%;
-  }
+.player-stats-table .stat h4 {
+  margin-bottom: 5px;
+  color: #004933; /* Verde */
 }
