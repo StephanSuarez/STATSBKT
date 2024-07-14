@@ -1,10 +1,12 @@
 <div class="equipo-card">
-    <div class="equipo-info">
-        <div class="equipo-image">
-            <img src="assets/imgs/escudo-equipo.png" alt="Escudo del Equipo">
-        </div>
-        <div class="equipo-details">
-            <h2 class="equipo-name">Nombre del Equipo</h2>
+    <div class="equipo-info" *ngFor="let equipo of equipos">
+        <div (click)="goToView(equipo.id)">
+            <div class="equipo-image">
+                <img [src]="equipo.escudoUrl" [alt]="equipo.nombre">
+            </div>
+            <div class="equipo-details">
+                <h2 class="equipo-name">{{ equipo.nombre }}</h2>
+            </div>
         </div>
     </div>
 </div>
