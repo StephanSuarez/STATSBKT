@@ -2,39 +2,49 @@
   display: flex;
   flex-direction: column;
   align-items: center;
-  max-width: 1200px;
+  max-width: 900px;
   margin: 0 auto;
-  background-color: #004933; /* Verde */
+  background-color: #121212;
   color: #fff;
-  padding: 20px;
   border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s;
+  overflow: hidden; /* Ensure the background image doesn't overflow the container */
 }
 
-
 .player-header {
-  display: flex;
   width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  display: flex;
   justify-content: space-between;
   align-items: center;
-  padding-bottom: 20px;
-  margin-bottom: 20px;
+  position: relative;
+}
+
+.background-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 10px 10px 0 0;
 }
 
 .team-logo img {
-  width: 40px;
+  width: 60px;
   position: absolute;
-  top: 70px;
+  top: 20px;
+  left: 20px;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }
 
 .player-avatar img {
-  width: 150px;
-  height: 150px;
-  margin-top: 10px;
-  margin-left: 30px;
+  width: 180px;
+  height: 180px;
   border-radius: 50%;
   object-fit: cover;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
@@ -55,28 +65,29 @@
   margin: 0;
 }
 
-.player-stats-table {
+.player-name h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.player-name p {
+  font-size: 1.2em;
+  margin: 0;
+  color: #888;
+}
+
+.player-details, .player-extra-stats {
+  width: 100%;
+  padding: 20px;
+  background-color: #121212; /* Ensure the rest of the card has the black background */
+}
+
+.player-stats, .player-extra-stats {
   display: flex;
-  flex-wrap: wrap;
   justify-content: space-around;
   width: 100%;
-  background-color: #000; /* Negro */
-  padding: 20px;
-  border-radius: 10px;
 }
 
-.player-stats-table .stat {
-  width: 150px;
+.player-stats .stat, .player-extra-stats .stat {
   text-align: center;
-  margin: 10px 0;
-  background-color: #f7ce19; /* Amarillo */
-  color: #000; /* Negro */
-  padding: 10px;
-  border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-}
-
-.player-stats-table .stat h4 {
-  margin-bottom: 5px;
-  color: #004933; /* Verde */
 }

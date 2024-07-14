@@ -1,12 +1,32 @@
 import { Component } from '@angular/core';
+import { FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-matches',
   standalone: true,
-  imports: [],
+  imports: [FormsModule],
   templateUrl: './matches.component.html',
-  styleUrl: './matches.component.css'
+  styleUrls: ['./matches.component.css']
 })
 export class MatchesComponent {
+  match = {
+    id: '',
+    date: '',
+    jugadorId: '',
+    dosPuntosExitosos: '',
+    dosPuntosFallidos: '',
+    tresPuntosExitosos: '',
+    tresPuntosFallidos: '',
+    tirolibreExitosos: '',
+    tirolibreFallidos: '',
+    rebotes: '',
+    asistencias: '',
+    minutosJugados: '',
+    equipoAId: '',
+    equipoBId: ''
+  };
 
+  onSubmit() {
+    console.log('Formulario enviado:', this.match);
+  }
 }
