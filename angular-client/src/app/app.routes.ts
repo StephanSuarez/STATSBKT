@@ -23,8 +23,8 @@ export const routes: Routes = [
 
   // ADMIN
   { path: 'admin-panel', component: AdminComponent, canActivate: [AuthGuard]},
-  { path: 'admin-players', component: PlayersComponent, canActivate: [AuthGuard]},
-  { path: 'admin-teams', component: TeamsComponent, canActivate: [AuthGuard]},
-  { path: 'admin-matches', component: MatchesComponent, canActivate: [AuthGuard]}
+  { path: 'admin-jugadores', component: PlayersComponent, canActivate: [AuthGuard]},
+  { path: 'admin-equipos', component: TeamsComponent, canActivate: [AuthGuard]},
+  { path: 'admin-juegos', component: MatchesComponent, canActivate: [AuthGuard]}
 
 ];

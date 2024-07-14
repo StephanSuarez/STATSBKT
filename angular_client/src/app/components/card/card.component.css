@@ -1,0 +1,63 @@
+.jugador-card {
+    width: 300px;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    overflow: hidden;
+    transition: transform 0.3s, box-shadow 0.3s;
+    background-color: #fff;
+    position: relative;
+}
+
+.jugador-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.jugador-info {
+    display: flex;
+    align-items: center;
+    padding: 15px;
+}
+
+.jugador-number {
+    font-size: smaller;
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    background-color: #121111;
+    color: #fff;
+    padding: 5px 10px;
+    border-radius: 14px;
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.jugador-image {
+    flex: 1;
+}
+
+.jugador-image img {
+    border-radius: 50%;
+    width: 80px;
+    height: 80px;
+    object-fit: cover;
+}
+
+.jugador-details {
+    flex: 2;
+    margin-left: 15px;
+}
+
+.jugador-name {
+    margin: 0;
+    font-size: 1.5em;
+    color: #333;
+}
+
+.jugador-position {
+    display: inline-block;
+    margin-top: 10px;
+    font-size: 1em;
+    color: #666;
+}

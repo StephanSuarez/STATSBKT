@@ -1,9 +1,22 @@
-<div class="player-view">
-  <div class="player-avatar">
-    <img [src]="player.avatarUrl" alt="Avatar de {{ player.name }}">
+<div class="player-profile">
+  <div class="player-header">
+    <div class="background-image">
+      <img [src]="player.fondo" alt="Background Image">
+    </div>
+    <div class="team-logo">
+      <img [src]="player.imgEscudo" alt="Team Logo">
+    </div>
+    <div class="player-avatar">
+      <img [src]="player.image" alt="Avatar de {{ player.name }}">
+    </div>
+    <div class="player-info-header">
+      <h2>{{ player.team }} | #{{ player.number }} | {{ player.position }}</h2>
+      <h1>{{ player.name }}</h1>
+      <p>{{ player.nickname }}</p>
+    </div>
   </div>
-  <div class="player-stats">
-    <div class="main-stats">
+  <div class="player-details">
+    <div class="player-stats">
       <div class="stat">
         <h3>Puntos</h3>
         <p>{{ player.puntos }}</p>
@@ -17,16 +30,16 @@
         <p>{{ player.rebotes }}</p>
       </div>
     </div>
-    <div class="side-stats">
-      <div class="stat">
-        <h4>Minutos Jugados</h4>
-        <p>{{ player.minutosJugados }}</p>
-      </div>
-      <div class="stat">
-        <h4>Total de Partidos</h4>
-        <p>{{ player.partidosJugados }}</p>
-      </div>
-      <!-- Puedes agregar más estadísticas aquí -->
+  </div>
+  <div class="player-extra-stats">
+    <div class="stat">
+      <h4>Minutos Jugados</h4>
+      <p>{{ player.minutosJugados }}</p>
     </div>
+    <div class="stat">
+      <h4>Total de Partidos</h4>
+      <p>{{ player.partidosJugados }}</p>
+    </div>
+    <!-- Agrega más estadísticas si es necesario -->
   </div>
 </div>

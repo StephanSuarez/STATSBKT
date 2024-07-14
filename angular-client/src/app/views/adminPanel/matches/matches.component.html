@@ -1,1 +1,79 @@
-<p>matches works!</p>
+<div class="match-form">
+    <h2>Crear Nuevo Partido</h2>
+    <form (ngSubmit)="onSubmit()">
+      <div class="form-card">
+        <div class="form-row">
+          <div class="form-group">
+            <label for="matchId">ID del Partido:</label>
+            <input type="text" id="matchId" name="matchId" [(ngModel)]="match.id" required>
+          </div>
+          <div class="form-group">
+            <label for="matchDate">Fecha:</label>
+            <input type="date" id="matchDate" name="matchDate" [(ngModel)]="match.date" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="jugadorId">ID del Jugador:</label>
+            <input type="text" id="jugadorId" name="jugadorId" [(ngModel)]="match.jugadorId" required>
+          </div>
+          <div class="form-group">
+            <label for="minutosJugados">Minutos Jugados:</label>
+            <input type="number" id="minutosJugados" name="minutosJugados" [(ngModel)]="match.minutosJugados" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="dosPuntosExitosos">Dos Puntos Exitosos:</label>
+            <input type="number" id="dosPuntosExitosos" name="dosPuntosExitosos" [(ngModel)]="match.dosPuntosExitosos" required>
+          </div>
+          <div class="form-group">
+            <label for="dosPuntosFallidos">Dos Puntos Fallidos:</label>
+            <input type="number" id="dosPuntosFallidos" name="dosPuntosFallidos" [(ngModel)]="match.dosPuntosFallidos" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tresPuntosExitosos">Tres Puntos Exitosos:</label>
+            <input type="number" id="tresPuntosExitosos" name="tresPuntosExitosos" [(ngModel)]="match.tresPuntosExitosos" required>
+          </div>
+          <div class="form-group">
+            <label for="tresPuntosFallidos">Tres Puntos Fallidos:</label>
+            <input type="number" id="tresPuntosFallidos" name="tresPuntosFallidos" [(ngModel)]="match.tresPuntosFallidos" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="tirolibreExitosos">Tiros Libres Exitosos:</label>
+            <input type="number" id="tirolibreExitosos" name="tirolibreExitosos" [(ngModel)]="match.tirolibreExitosos" required>
+          </div>
+          <div class="form-group">
+            <label for="tirolibreFallidos">Tiros Libres Fallidos:</label>
+            <input type="number" id="tirolibreFallidos" name="tirolibreFallidos" [(ngModel)]="match.tirolibreFallidos" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="rebotes">Rebotes:</label>
+            <input type="number" id="rebotes" name="rebotes" [(ngModel)]="match.rebotes" required>
+          </div>
+          <div class="form-group">
+            <label for="asistencias">Asistencias:</label>
+            <input type="number" id="asistencias" name="asistencias" [(ngModel)]="match.asistencias" required>
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label for="equipoAId">ID del Equipo A:</label>
+            <input type="text" id="equipoAId" name="equipoAId" [(ngModel)]="match.equipoAId" required>
+          </div>
+          <div class="form-group">
+            <label for="equipoBId">ID del Equipo B:</label>
+            <input type="text" id="equipoBId" name="equipoBId" [(ngModel)]="match.equipoBId" required>
+          </div>
+        </div>
+        <button type="submit">Crear Partido</button>
+      </div>
+    </form>
+  </div>
+  

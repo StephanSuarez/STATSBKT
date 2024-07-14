@@ -4,7 +4,7 @@ a {
 }
 
 #nav {
-  background-color: #140e0d !important; 
+  background-color: #000000 !important; 
 }
 
 .nav-link:hover {
@@ -21,7 +21,7 @@ a {
 }
 
 #logo {
-  width: 90px;
+  width: 230px;
 }
 
 .logo-container {
