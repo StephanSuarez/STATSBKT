@@ -3,3 +3,9 @@
   margin: 0 auto;
   margin-top: 50px;
 }
+
+.equipos-contenedor{
+  display: flex;
+  gap: 30px;
+  
+}

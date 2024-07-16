@@ -9,6 +9,6 @@ import { Component, Input } from '@angular/core';
 })
 export class JugadorComponent {
 
-  player: any = { id:"1", number: 7, fondo: 'assets/imgs/escudos/fondoU.png', image: 'assets/imgs/avatars/danielmora.png', imgEscudo: "assets/imgs/escudos/ucundinamarca.png", name: 'John', team: 'Ucundinamarca', rebotes: 7, asistencias: 8, puntos: 25 };
+  player: any = { id:"1", number: 7, fondo: 'assets/imgs/escudos/fondoU.png', image: 'assets/imgs/avatars/men/avatar1.png', imgEscudo: "assets/imgs/escudos/ucundinamarca.png", name: 'John', team: 'Ucundinamarca', rebotes: 7, asistencias: 8, puntos: 25 };
   
 }

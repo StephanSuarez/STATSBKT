@@ -1,14 +1,15 @@
 import { Component } from '@angular/core';
-import { CardTeamComponent } from '../../components/card-team/card-team.component';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
+import { CardTeamComponent } from '../../components/card-team/card-team.component';
+import { PlusComponent } from '../../components/plus/plus.component';
 
 @Component({
   selector: 'app-equipos',
   standalone: true,
-  imports: [CardTeamComponent, CommonModule],
+  imports: [CardTeamComponent, CommonModule, PlusComponent],
   templateUrl: './equipos.component.html',
   styleUrl: './equipos.component.css'
 })
@@ -23,14 +24,13 @@ export class EquiposComponent {
 
   ngOnInit(): void{
     this.log = localStorage.getItem('isAdminLoggedIn') == 'true';
-    this.adminLogeado = true;
+    if(this.log){
+      this.adminLogeado = true;
+    }
 
     this.getData().subscribe(
       (data)=>{
-        console.log("hafsd")
-
         this.equipos = data;
-        console.log(this.equipos)
       },
       (error)=>{
         console.log(error);
