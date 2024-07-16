@@ -12,10 +12,7 @@
 
 .player-header {
   width: 100%;
-  background-image: url('/assets/imgs/escudos/fondoU.png'); /* Ajusta la ruta */
-  background-color: #0cf07ec7;
-  background-size: cover; /* Para asegurarte de que la imagen cubra todo el contenedor */
-  background-position: center; /* Para centrar la imagen */
+  background-color: #333;
   color: #fff;
   padding: 20px;
   border-bottom: 1px solid #333;
@@ -24,7 +21,6 @@
   align-items: center;
   position: relative;
 }
-
 
 .background-image img {
   position: absolute;

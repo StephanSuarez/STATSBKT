@@ -24,4 +24,8 @@ export class NavbarComponent {
     localStorage.removeItem('isAdminLoggedIn');
     this.router.navigate(['/'])
   }
+
+  irPanel(){
+    this.router.navigate(['/admin-panel'])
+  }
 }

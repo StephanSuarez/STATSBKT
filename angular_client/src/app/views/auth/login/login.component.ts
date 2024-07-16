@@ -26,7 +26,9 @@ export class LoginComponent {
       .subscribe(data => {
         localStorage.setItem('isAdminLoggedIn', 'true');
         if(data){
-          this.router.navigate(['admin-panel'])
+          this.router.navigate(['admin-panel']).then(()=>{
+            window.location.reload();
+          })
         }
       }, (error)=>{
         console.error("ERRRRRRRRRRRRROR", error)

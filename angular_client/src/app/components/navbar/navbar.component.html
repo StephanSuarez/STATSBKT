@@ -23,8 +23,8 @@
       <img id="logo" src="assets/logo.jpg" alt="logo">
     </div>
     <div class="d-flex">
-      <p (click)="cerrarSesion()" class="nav-link" href="/login" *ngIf="adminLogeado"><img src="assets/icons/adminPanel.svg" alt="">Panel</p>
-      <a class="nav-link" href="/login" *ngIf="adminLogeado"><img src="assets/icons/login.svg" alt=""> Log Out</a>
+      <p (click)="irPanel()" class="nav-link" href="/login" *ngIf="adminLogeado"><img src="assets/icons/adminPanel.svg" alt="">Panel</p>
+      <a (click)="cerrarSesion()" class="nav-link" href="/login" *ngIf="adminLogeado"><img src="assets/icons/login.svg" alt=""> Log Out</a>
       <a class="nav-link" href="/login" *ngIf="!adminLogeado"><img src="assets/icons/login.svg" alt=""> Admin</a>
     </div>
   </div>

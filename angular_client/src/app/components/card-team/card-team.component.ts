@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { Router } from '@angular/router';
 
@@ -10,14 +10,16 @@ import { Router } from '@angular/router';
   styleUrl: './card-team.component.css'
 })
 export class CardTeamComponent {
+
+  @Input() equipo: any
+
   constructor(private router: Router) { }
-  equipos = [
-    {
-      id: '1',
-      nombre: "Ucundinamarca",
-      escudoUrl: "assets/imgs/escudos/ucundinamarca.png"
-    }
-  ]
+  
+
+  ngOnInit(){
+    this.equipo.escudo = `/assets/imgs/escudos/${this.equipo.escudo}`
+    console.log(this.equipo)
+  }
 
   goToView(equipoId: string) {
     this.router.navigate(['/equipo'], { queryParams: { id: equipoId } });
