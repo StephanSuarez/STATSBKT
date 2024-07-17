@@ -1,12 +1,12 @@
 <!-- card.component.html -->
 <div (click)="goToView(player.id)" class="jugador-card">
     <div class="jugador-info">
-        <div class="jugador-number">{{ player.number }}</div>
+        <div class="jugador-number">{{ player.numero }}</div>
         <div class="jugador-image">
-            <img [src]="player.image" alt="Imagen">
+            <img [src]="imageurl" alt="Imagen">
         </div>
         <div class="jugador-details">
-            <h2 class="jugador-name">{{ player.name }}</h2>
+            <h2 class="jugador-name">{{ player.nombreUsuario }}</h2>
             <span class="jugador-position">{{ player.team }}</span>
         </div>
     </div>

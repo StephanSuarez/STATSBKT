@@ -1,19 +1,23 @@
 <div class="player-form">
-    <h2>Crear Nuevo Jugador</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-group">
-        <label for="playerName">Nombre del Jugador:</label>
-        <input type="text" id="playerName" name="playerName" [(ngModel)]="player.name" required>
-      </div>
-      <div class="form-group">
-        <label for="playerTeam">Equipo del Jugador:</label>
-        <input type="text" id="playerTeam" name="playerTeam" [(ngModel)]="player.team" required>
-      </div>
-      <div class="form-group">
-        <label for="playerDorsal">Dorsal del Jugador:</label>
-        <input type="number" id="playerDorsal" name="playerDorsal" [(ngModel)]="player.dorsal" required>
-      </div>
-      <button type="submit">Crear Jugador</button>
-    </form>
+  <h2>Crear Nuevo Jugador</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-group">
+      <label for="playerName">Nombre del Jugador:</label>
+      <input type="text" id="playerName" name="playerName" [(ngModel)]="player.nombreUsuario" required>
+    </div>
+    <div class="form-group">
+      <label for="playerTeam">Equipo del Jugador:</label>
+      <select id="playerTeam" name="playerTeam" [(ngModel)]="auxTeamId" required>
+        <option *ngFor="let equipo of equiposDisponibles" [value]="equipo.id">{{ equipo.nombreEquipo }}</option>
+      </select>
+    </div>
+    <div class="form-group">
+      <label for="playerDorsal">Dorsal del Jugador:</label>
+      <input type="number" id="playerDorsal" name="playerDorsal" [(ngModel)]="player.numero" required>
+    </div>
+    <button type="submit">Crear Jugador</button>
+  </form>
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
   </div>
-  
+</div>

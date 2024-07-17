@@ -31,4 +31,10 @@ export class JuegosController {
   remove(@Param('id') id: string) {
     return this.juegosService.remove(+id);
   }
+
+  // STATS PLAYER
+  @Get('estadisticas/:id')
+  getStats(@Param('id') id: string) {
+    return this.juegosService.getStatsPlayer(+id);
+  }
 }

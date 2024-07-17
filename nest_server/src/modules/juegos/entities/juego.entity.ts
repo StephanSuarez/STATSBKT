@@ -40,10 +40,10 @@ export class Juego {
     @ManyToOne(() => Usuario, usuario => usuario.juegos)
     jugador: Usuario;
 
-    @ManyToOne(() => Equipo, equipo => equipo.equipoA)
-    EquipoA: Equipo;
+    @ManyToOne(() => Equipo, equipo => equipo.equipoPropio)
+    equipoPropio: Equipo;
 
-    @ManyToOne(() => Equipo, equipo => equipo.equipoB)
-    EquipoB: Equipo;
+    @ManyToOne(() => Equipo, equipo => equipo.equipoRival)
+    equipoRival: Equipo;
 }
 

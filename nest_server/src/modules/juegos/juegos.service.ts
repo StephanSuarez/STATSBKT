@@ -25,8 +25,8 @@ export class JuegosService {
     nuevoJuego.rebotes = createJuegoDto.rebotes;
     nuevoJuego.asistencias = createJuegoDto.asistencias;
     nuevoJuego.jugador = createJuegoDto.jugadorId;
-    nuevoJuego.EquipoA = createJuegoDto.equipoAId;
-    nuevoJuego.EquipoB = createJuegoDto.equipoBId;
+    nuevoJuego.equipoPropio = createJuegoDto.equipoAId;
+    nuevoJuego.equipoRival = createJuegoDto.equipoBId;
 
     const juegoCreado = await this.juegoRepositorio.save(nuevoJuego); 
     return juegoCreado;
@@ -57,8 +57,8 @@ export class JuegosService {
     juego.rebotes = updateJuegoDto.rebotes ?? juego.rebotes;
     juego.asistencias = updateJuegoDto.asistencias ?? juego.asistencias;
     juego.jugador = updateJuegoDto.jugadorId ?? juego.jugador;
-    juego.EquipoA = updateJuegoDto.equipoAId ?? juego.EquipoA;
-    juego.EquipoB = updateJuegoDto.equipoBId ?? juego.EquipoB;
+    juego.equipoPropio = updateJuegoDto.equipoAId ?? juego.equipoPropio;
+    juego.equipoRival = updateJuegoDto.equipoBId ?? juego.equipoRival;
 
     const juegoActualizado = await this.juegoRepositorio.save(juego);
     return juegoActualizado;
@@ -67,5 +67,15 @@ export class JuegosService {
   async remove(id: number): Promise<void> {
     const juego = await this.findOne(id);
     await this.juegoRepositorio.remove(juego);
+  }
+
+   // STATS PLAYER
+   async getStatsPlayer(id: number) {
+    const mathcesPlayer = await this.juegoRepositorio.find({
+      where: { jugador: {id} },
+      relations: []
+    });
+    console.log(mathcesPlayer)
+    return mathcesPlayer
   }
 }

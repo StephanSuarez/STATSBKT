@@ -1,10 +1,12 @@
 <section>
   <h1>{{ nombreEquipo }}</h1>
-  <p>{{ descripcionEquipo }}</p>
 
   <div class="jugadores-container">
     <div class="jugadores" *ngFor="let jugador of jugadores">
       <app-card [player]="jugador"></app-card>
+    </div>
+    <div *ngIf="jugadores.length == 0">
+      <p>No hay jugadores inscritos en este equipo</p>
     </div>
   </div>
 </section>

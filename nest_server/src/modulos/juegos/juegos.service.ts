@@ -47,4 +47,9 @@ export class JuegosService {
   remove(id: number) {
     return `This action removes a #${id} juego`;
   }
+
+  // STATS PLAYER
+  async getStatsPlayer(id: number) {
+    const mathcesPlayer = this.juegoRepositorio.find({where: { jugador: {id} }})
+  }
 }

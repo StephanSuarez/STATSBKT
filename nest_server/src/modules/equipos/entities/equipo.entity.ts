@@ -16,9 +16,9 @@ export class Equipo {
     @OneToMany(() => Usuario, usuario => usuario.equipo)
     usuarios: Usuario[];
 
-    @OneToMany(() => Juego, juego => juego.EquipoA)
-    equipoA: Juego[];
+    @OneToMany(() => Juego, juego => juego.equipoPropio)
+    equipoPropio: Juego[];
 
-    @OneToMany(() => Juego, juego => juego.EquipoB)
-    equipoB: Juego[];
+    @OneToMany(() => Juego, juego => juego.equipoRival)
+    equipoRival: Juego[];
 }

@@ -48,4 +48,10 @@ export class UsuariosService {
     const usuario = await this.findOne(id);
     await this.usersRepository.remove(usuario);
   }
+  
+  // TEAM PLAYERS
+  async getTeamPlayers(equipoId: number) {
+    const teamPlayers = await this.usersRepository.find({where: {equipoId: equipoId}})
+    return teamPlayers
+  }
 }

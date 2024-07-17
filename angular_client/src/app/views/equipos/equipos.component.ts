@@ -5,6 +5,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
 import { CardTeamComponent } from '../../components/card-team/card-team.component';
 import { PlusComponent } from '../../components/plus/plus.component';
+import { environment } from '../../../environments/environment.development';
 
 @Component({
   selector: 'app-equipos',
@@ -15,7 +16,7 @@ import { PlusComponent } from '../../components/plus/plus.component';
 })
 export class EquiposComponent {
 
-  private apiUrl = 'http://localhost:3000/equipos';
+  private apiUrl = environment.apiBaseUrl;
   public equipos = [];
   public log: boolean = false
   constructor(private router: Router, private http: HttpClient) {}
@@ -39,7 +40,7 @@ export class EquiposComponent {
   }
 
   getData(): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}`);
+    return this.http.get<any>(`${this.apiUrl}/equipos`);
   }
 
   irAdEquipos() {

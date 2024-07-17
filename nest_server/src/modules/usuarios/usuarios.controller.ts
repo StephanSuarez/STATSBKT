@@ -31,4 +31,11 @@ export class UsuariosController {
   remove(@Param('id') id: string) {
     return this.usuariosService.remove(+id);
   }
+
+  // TEAM PLAYERS
+  @Get('equipo/:id')
+  async findTeamPlayers(@Param('id') id: string) {
+    const equipoId = parseInt(id)
+    return await this.usuariosService.getTeamPlayers(equipoId);
+  }
 }

@@ -10,35 +10,35 @@
       <img [src]="player.image" alt="Avatar de {{ player.name }}">
     </div>
     <div class="player-info-header">
-      <h2>{{ player.team }} | #{{ player.number }} | {{ player.position }}</h2>
-      <h1>{{ player.name }}</h1>
-      <p>{{ player.nickname }}</p>
+      <h2>{{ equipoJugador?.nombreEquipo }} | #{{ jugador?.numero }} | {{ jugador?.position }}</h2>
+      <h1>{{ jugador?.nombreUsuario }}</h1>
+      <p>{{ jugador?.nickname }}</p>
     </div>
   </div>
   <div class="player-details">
     <div class="player-stats">
       <div class="stat">
         <h3>Puntos</h3>
-        <p>{{ player.puntos }}</p>
+        <p>{{ estadisticasJugador?.puntos }}</p>
       </div>
       <div class="stat">
         <h3>Asistencias</h3>
-        <p>{{ player.asistencias }}</p>
+        <p>{{ estadisticasJugador?.asistencias }}</p>
       </div>
       <div class="stat">
         <h3>Rebotes</h3>
-        <p>{{ player.rebotes }}</p>
+        <p>{{ estadisticasJugador?.rebotes }}</p>
       </div>
     </div>
   </div>
   <div class="player-extra-stats">
     <div class="stat">
       <h4>Minutos Jugados</h4>
-      <p>{{ player.minutosJugados }}</p>
+      <p>{{ estadisticasJugador?.minutosJugados }}</p>
     </div>
     <div class="stat">
       <h4>Total de Partidos</h4>
-      <p>{{ player.partidosJugados }}</p>
+      <p>{{ estadisticasJugador?.partidosJugados }}</p>
     </div>
     <!-- Agrega más estadísticas si es necesario -->
   </div>

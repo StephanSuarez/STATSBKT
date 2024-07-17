@@ -4,18 +4,16 @@
       <div class="form-card">
         <div class="form-row">
           <div class="form-group">
-            <label for="matchId">ID del Partido:</label>
-            <input type="text" id="matchId" name="matchId" [(ngModel)]="match.id" required>
-          </div>
-          <div class="form-group">
             <label for="matchDate">Fecha:</label>
             <input type="date" id="matchDate" name="matchDate" [(ngModel)]="match.date" required>
           </div>
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="jugadorId">ID del Jugador:</label>
-            <input type="text" id="jugadorId" name="jugadorId" [(ngModel)]="match.jugadorId" required>
+            <label for="jugadorId">Jugador:</label>
+             <select id="jugadorId" name="jugadorId">
+              <option *ngFor="let jugador of jugadores" [ngValue]="jugador.id">{{jugador.nombreUsuario}}</option>
+             </select>
           </div>
           <div class="form-group">
             <label for="minutosJugados">Minutos Jugados:</label>
@@ -64,12 +62,18 @@
         </div>
         <div class="form-row">
           <div class="form-group">
-            <label for="equipoAId">ID del Equipo A:</label>
-            <input type="text" id="equipoAId" name="equipoAId" [(ngModel)]="match.equipoAId" required>
+            <label for="equipoAId">Equipo del Jugador:</label>
+            <!-- <input type="text" id="equipoAId" name="equipoAId" [(ngModel)]="match.equipoAId" required> -->
+             <select id="equipoAId" name="equipoAId">
+              <option *ngFor="let equipo" value=""></option>
+             </select>
           </div>
           <div class="form-group">
-            <label for="equipoBId">ID del Equipo B:</label>
-            <input type="text" id="equipoBId" name="equipoBId" [(ngModel)]="match.equipoBId" required>
+            <label for="equipoBId">Equipo Contrincante:</label>
+            <!-- <input type="text" id="equipoBId" name="equipoBId" [(ngModel)]="match.equipoBId" required> -->
+             <select id="equipoBId" name="equipoBId">
+              <option value=""></option>
+             </select>
           </div>
         </div>
         <button type="submit">Crear Partido</button>

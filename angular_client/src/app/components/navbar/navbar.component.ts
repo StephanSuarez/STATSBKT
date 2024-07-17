@@ -17,7 +17,6 @@ export class NavbarComponent {
 
   ngOnInit() {
     this.adminLogeado = localStorage.getItem('isAdminLoggedIn') == 'true';
-    console.log(this.adminLogeado)
   }
 
   cerrarSesion() {
