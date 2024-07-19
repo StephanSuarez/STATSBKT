@@ -1,63 +1,13 @@
-<!-- Slideshow container -->
-<div class="slideshow-container">
-
-  <!-- Full-width images with number and caption text -->
-  <div *ngFor="let image of sliderImages; let i = index" [class]="getSlideClass(i)">
-    <div class="numbertext">{{ i + 1 }} / {{ sliderImages.length }}</div>
-    <img [src]="image.src" style="width:100%">
-    <div class="text">{{ image.caption }}</div>
+<div class="estadisticas-container">
+  <h2 class="statsbkt-title move-right">STATSBKT</h2>
+  <div class="content-wrapper">
+    <div class="image-container">
+      <img src="assets/miaumiau_svg.svg" alt="Imagen">
+    </div>
+    <div class="text-container">
+      <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Perferendis rerum ipsum aliquid tenetur fugiat enim expedita commodi natus, hic cum deleniti, adipisci iure. Molestiae excepturi fugiat optio dicta quisquam vero.
+        Nam, illum eligendi. Quo at beatae nulla quis ipsam dignissimos. Explicabo provident totam, at molestias laborum exercitationem excepturi. Ea perferendis libero odio doloremque labore id iure facere saepe autem? Asperiores?
+        Voluptatibus error ratione sint asperiores vero eveniet distinctio? Numquam rerum repellendus ea eaque autem in at reiciendis, quia reprehenderit. Illum exercitationem quae explicabo recusandae, sint non ea iure? Nostrum, molestiae!</p>
+    </div>
   </div>
-
-  <!-- Next and previous buttons -->
-  <a class="prev" (click)="prevSlide()">&#10094;</a>
-  <a class="next" (click)="nextSlide()">&#10095;</a>
 </div>
-<br>
-
-<!-- The dots/circles -->
-<div style="text-align:center">
-  <span class="dot" *ngFor="let image of sliderImages; let i = index" [class.active]="i === currentSlide" (click)="setCurrentSlide(i)"></span>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<!-- Ranking title -->
-<h2 class="ranking-title">Ranking</h2>
-
-<div class="ranking-container">
-  <table class="table-card">
-    <thead>
-      <tr>
-        <th>Equipo</th>
-        <th>Rebotes</th>
-        <th>Asistencias</th>
-        <th>Puntos Totales</th>
-      </tr>
-    </thead>
-    <tbody>
-      <tr *ngFor="let team of teams">
-        <td>
-          <a [href]="team.teamUrl">
-            <img [src]="team.teamLogo" alt="Logo" class="team-logo">
-            {{ team.teamName }}
-          </a>
-        </td>
-        <td>{{ team.rebounds }}</td>
-        <td>{{ team.assists }}</td>
-        <td>{{ team.totalPoints }}</td>
-      </tr>
-    </tbody>
-  </table>
-</div>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
-<br>
