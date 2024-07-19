@@ -91,3 +91,80 @@
 .player-stats .stat, .player-extra-stats .stat {
   text-align: center;
 }
+
+
+/* Ranking table styles */
+.ranking-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.table-card {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-card th, .table-card td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-card th {
+  background-color: #333;
+  color: #fff;
+}
+
+.table-card tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-card tr:hover {
+  background-color: #ddd;
+}
+
+.table-card td a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  text-decoration: none;
+}
+
+.table-card .team-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .ranking-title {
+    font-size: 20px;
+  }
+
+  .table-card th, .table-card td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .table-card .team-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .prev, .next {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .numbertext, .text {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}

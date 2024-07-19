@@ -19,27 +19,56 @@
     <div class="player-stats">
       <div class="stat">
         <h3>Puntos</h3>
-        <p>{{ estadisticasJugador?.puntos }}</p>
+        <p>{{ datosPromedio.puntos }}</p>
       </div>
       <div class="stat">
         <h3>Asistencias</h3>
-        <p>{{ estadisticasJugador?.asistencias }}</p>
+        <p>{{ datosPromedio.asistencias }}</p>
       </div>
       <div class="stat">
         <h3>Rebotes</h3>
-        <p>{{ estadisticasJugador?.rebotes }}</p>
+        <p>{{ datosPromedio.rebotes }}</p>
       </div>
     </div>
   </div>
   <div class="player-extra-stats">
     <div class="stat">
       <h4>Minutos Jugados</h4>
-      <p>{{ estadisticasJugador?.minutosJugados }}</p>
+      <p>{{ datosPromedio.minutosJugados }}</p>
     </div>
     <div class="stat">
       <h4>Total de Partidos</h4>
-      <p>{{ estadisticasJugador?.partidosJugados }}</p>
+      <p>{{ estadisticasJugador?.length }}</p>
     </div>
     <!-- Agrega más estadísticas si es necesario -->
+  </div>
+  <div class="ranking-container">
+    <table class="table-card">
+      <thead>
+        <tr>
+          <th>VS</th>
+          <th>MIN</th>
+          <th>PTS</th> <!-- PUNTOS TOTALES -->
+          <th>TC</th> <!--TIROS DE CAMPO -->
+          <th>2PTS</th>
+          <th>3PTS</th>
+          <th>REBO</th>
+          <th>AST</th>
+        </tr>
+      </thead>
+      <tbody>
+        <!-- <tr *ngFor="let juego of juegosDatos">
+          <td>
+            <a [href]="juego.teamUrl">
+              <img [src]="juego.teamLogo" alt="Logo" class="team-logo">
+              {{ juego.teamName }}
+            </a>
+          </td>
+          <td>{{ juego.rebounds }}</td>
+          <td>{{ juego.assists }}</td>
+          <td>{{ juego.totalPoints }}</td> 
+        </tr>-->
+      </tbody>
+    </table>
   </div>
 </div>
