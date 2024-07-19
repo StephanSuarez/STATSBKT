@@ -45,14 +45,14 @@ button[type="submit"] {
   padding: 10px;
   border: none;
   border-radius: 5px;
-  background-color: #f00;
+  background-color: #0a563f;
   color: #fff;
   font-size: 1em;
   cursor: pointer;
 }
 
 button[type="submit"]:hover {
-  background-color: #c00;
+  background-color: #003f2c;
 }
 
 .success-message {

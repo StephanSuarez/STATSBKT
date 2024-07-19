@@ -9,9 +9,6 @@ a, .nav-link {
 .nav-link{
   cursor: pointer;
 }
-.nav-link:hover {
-  background-color: #544e4e !important;
-}
 
 .nav-link:active {
   background-color: #544e4e !important;
@@ -19,7 +16,7 @@ a, .nav-link {
 }
 
 #logo {
-  width: 150px;
+  width: 80px;
 }
 
 .logo-container {
@@ -42,6 +39,18 @@ a, .nav-link {
 
 .navbar-brand {
   color: #fff !important;
+}
+
+a:hover{
+  color: #fcca34 !important;
+  transition: all ease-in-out .3s;
+}
+
+@media(min-width: 768px){
+  #nav {
+  height: 70px;
+
+  }
 }
 
 @media (max-width: 768px) {
