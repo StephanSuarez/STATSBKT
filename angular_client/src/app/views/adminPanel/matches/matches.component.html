@@ -1,83 +1,95 @@
 <div class="match-form">
-    <h2>Crear Juego Individual</h2>
-    <form (ngSubmit)="onSubmit()">
-      <div class="form-card">
-        <div class="form-row">
-          <div class="form-group">
-            <label for="matchDate">Fecha:</label>
-            <input type="date" id="matchDate" name="matchDate" [(ngModel)]="match.date" required>
-          </div>
+  <h2>Crear Juego Individual</h2>
+  <form (ngSubmit)="onSubmit()">
+    <div class="form-card">
+      <div class="form-row">
+        <div class="form-group">
+          <label for="matchDate">Fecha:</label>
+          <input type="date" id="matchDate" name="matchDate" [(ngModel)]="match.date" required>
         </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="jugadorId">Jugador:</label>
-             <select id="jugadorId" name="jugadorId">
-              <option *ngFor="let jugador of jugadores" [ngValue]="jugador.id">{{jugador.nombreUsuario}}</option>
-             </select>
-          </div>
-          <div class="form-group">
-            <label for="minutosJugados">Minutos Jugados:</label>
-            <input type="number" id="minutosJugados" name="minutosJugados" [(ngModel)]="match.minutosJugados" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="dosPuntosExitosos">Dos Puntos Exitosos:</label>
-            <input type="number" id="dosPuntosExitosos" name="dosPuntosExitosos" [(ngModel)]="match.dosPuntosExitosos" required>
-          </div>
-          <div class="form-group">
-            <label for="dosPuntosFallidos">Dos Puntos Fallidos:</label>
-            <input type="number" id="dosPuntosFallidos" name="dosPuntosFallidos" [(ngModel)]="match.dosPuntosFallidos" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="tresPuntosExitosos">Tres Puntos Exitosos:</label>
-            <input type="number" id="tresPuntosExitosos" name="tresPuntosExitosos" [(ngModel)]="match.tresPuntosExitosos" required>
-          </div>
-          <div class="form-group">
-            <label for="tresPuntosFallidos">Tres Puntos Fallidos:</label>
-            <input type="number" id="tresPuntosFallidos" name="tresPuntosFallidos" [(ngModel)]="match.tresPuntosFallidos" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="tirolibreExitosos">Tiros Libres Exitosos:</label>
-            <input type="number" id="tirolibreExitosos" name="tirolibreExitosos" [(ngModel)]="match.tirolibreExitosos" required>
-          </div>
-          <div class="form-group">
-            <label for="tirolibreFallidos">Tiros Libres Fallidos:</label>
-            <input type="number" id="tirolibreFallidos" name="tirolibreFallidos" [(ngModel)]="match.tirolibreFallidos" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="rebotes">Rebotes:</label>
-            <input type="number" id="rebotes" name="rebotes" [(ngModel)]="match.rebotes" required>
-          </div>
-          <div class="form-group">
-            <label for="asistencias">Asistencias:</label>
-            <input type="number" id="asistencias" name="asistencias" [(ngModel)]="match.asistencias" required>
-          </div>
-        </div>
-        <div class="form-row">
-          <div class="form-group">
-            <label for="equipoAId">Equipo del Jugador:</label>
-            <!-- <input type="text" id="equipoAId" name="equipoAId" [(ngModel)]="match.equipoAId" required> -->
-             <select id="equipoAId" name="equipoAId">
-              <option *ngFor="let equipo" value=""></option>
-             </select>
-          </div>
-          <div class="form-group">
-            <label for="equipoBId">Equipo Contrincante:</label>
-            <!-- <input type="text" id="equipoBId" name="equipoBId" [(ngModel)]="match.equipoBId" required> -->
-             <select id="equipoBId" name="equipoBId">
-              <option value=""></option>
-             </select>
-          </div>
-        </div>
-        <button type="submit">Crear Partido</button>
       </div>
-    </form>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="category">Categoria:</label>
+          <select name="category" id="category" [(ngModel)]="match.category" required>
+            <option *ngFor="let category of categories" [ngValue]="category">{{category}}</option>
+          </select>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="jugadorId">Jugador:</label>
+          <select id="jugadorId" name="jugadorId" [(ngModel)]="match.jugadorId" required>
+            <option *ngFor="let jugador of jugadores" [ngValue]="jugador.id">{{jugador.nombreUsuario}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="minutosJugados">Minutos Jugados:</label>
+          <input type="number" id="minutosJugados" name="minutosJugados" [(ngModel)]="minutosjug" required>
+        </div>
+        <div class="form-group">
+          <label for="segundosJugados">Segundos Jugados:</label>
+          <input type="number" id="segundosJugados" name="segundosJugados" [(ngModel)]="segundosJugados" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="dosPuntosExitosos">Dos Puntos Exitosos:</label>
+          <input type="number" id="dosPuntosExitosos" name="dosPuntosExitosos" [(ngModel)]="match.dosPuntosE" required>
+        </div>
+        <div class="form-group">
+          <label for="dosPuntosFallidos">Dos Puntos Fallidos:</label>
+          <input type="number" id="dosPuntosFallidos" name="dosPuntosFallidos" [(ngModel)]="match.dosPuntosF" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tresPuntosExitosos">Tres Puntos Exitosos:</label>
+          <input type="number" id="tresPuntosExitosos" name="tresPuntosExitosos" [(ngModel)]="match.tresPuntosE" required>
+        </div>
+        <div class="form-group">
+          <label for="tresPuntosFallidos">Tres Puntos Fallidos:</label>
+          <input type="number" id="tresPuntosFallidos" name="tresPuntosFallidos" [(ngModel)]="match.tresPuntosF" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="tirolibreExitosos">Tiros Libres Exitosos:</label>
+          <input type="number" id="tirolibreExitosos" name="tirolibreExitosos" [(ngModel)]="match.tirolibreE" required>
+        </div>
+        <div class="form-group">
+          <label for="tirolibreFallidos">Tiros Libres Fallidos:</label>
+          <input type="number" id="tirolibreFallidos" name="tirolibreFallidos" [(ngModel)]="match.tirolibreF" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="rebotes">Rebotes:</label>
+          <input type="number" id="rebotes" name="rebotes" [(ngModel)]="match.rebotes" required>
+        </div>
+        <div class="form-group">
+          <label for="asistencias">Asistencias:</label>
+          <input type="number" id="asistencias" name="asistencias" [(ngModel)]="match.asistencias" required>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
+          <label for="equipoAId">Equipo del Jugador:</label>
+          <select id="equipoAId" name="equipoAId" [(ngModel)]="match.equipoAId" required>
+            <option *ngFor="let equipo of equipos" [ngValue]="equipo.id">{{equipo.nombreEquipo}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="equipoBId">Equipo Contrincante:</label>
+          <select id="equipoBId" name="equipoBId" [(ngModel)]="match.equipoBId" required>
+            <option *ngFor="let equipo of equipos" [ngValue]="equipo.id">{{equipo.nombreEquipo}}</option>
+          </select>
+        </div>
+      </div>
+      <button type="submit">Crear Partido</button>
+    </div>
+  </form>
+  <div *ngIf="successMessage" class="success-message">
+    {{ successMessage }}
   </div>
-  
+</div>

@@ -7,6 +7,9 @@ export class Juego {
     @PrimaryGeneratedColumn()
     id: number;
 
+    @Column()
+    category: string;
+
     @Column({ type: 'timestamp' })
     fecha: Date;
 

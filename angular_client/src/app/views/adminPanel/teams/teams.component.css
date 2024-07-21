@@ -64,3 +64,9 @@
     background-color: #003f2c;
   }
   
+  .success-message {
+    margin-top: 20px;
+    text-align: center;
+    color: #4caf50;
+    font-weight: bold;
+  }

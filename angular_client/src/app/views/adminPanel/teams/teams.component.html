@@ -19,6 +19,9 @@
         </div>
         <button type="submit">Inscribir Equipo</button>
       </form>
+      <div *ngIf="successMessage" class="success-message">
+        {{ successMessage }}
+      </div>
     </div>
   </section>
   

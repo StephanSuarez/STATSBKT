@@ -10,7 +10,7 @@ export class Equipo {
     @Column()
     nombreEquipo: string;
 
-    @Column()
+    @Column("text")
     escudo: string;
 
     @OneToMany(() => Usuario, usuario => usuario.equipo)

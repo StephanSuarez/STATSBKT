@@ -1,5 +1,6 @@
 export class CreateJuegoDto {
   fecha: Date
+  category: string
   dosPuntosE: number
   dosPuntosF: number
   tresPuntosE: number

@@ -50,6 +50,7 @@ export class JugadorComponent {
           this.estadisticasJugador = estadisticasJugador;
           console.log(this.jugador, this.equipoJugador, this.estadisticasJugador);
           this.calcularDatosPromedio(estadisticasJugador);
+          this.calcularDatosTabla(estadisticasJugador);
         },
         (err) => {
           console.log(err);
@@ -106,6 +107,9 @@ export class JugadorComponent {
     this.datosPromedio.minutosJugados = promedioMinutosJugados;
   }
   
+  calcularDatosTabla(juegos: any){
+    
+  }
 
   player: any = {
     fondo: 'assets/imgs/escudos/fondoU.png',

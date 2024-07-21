@@ -27,6 +27,7 @@ export class JuegosService {
     nuevoJuego.jugador = createJuegoDto.jugadorId;
     nuevoJuego.equipoPropio = createJuegoDto.equipoAId;
     nuevoJuego.equipoRival = createJuegoDto.equipoBId;
+    nuevoJuego.category = createJuegoDto.category;
 
     const juegoCreado = await this.juegoRepositorio.save(nuevoJuego); 
     return juegoCreado;
