@@ -1,7 +1,7 @@
 import { HttpClient } from '@angular/common/http';
 import { Component } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
 import { environment } from '../../../../environments/environment.development';
 
@@ -15,6 +15,7 @@ import { environment } from '../../../../environments/environment.development';
 export class MatchesComponent {
   jugadores: any;
   equipos: any;
+  idJugador: string = '';
   categories: string[] = ["Zonal", "Nacional"];
   minutosjug: number = 0;
   segundosJugados: number = 0;
@@ -38,11 +39,12 @@ export class MatchesComponent {
   successMessage: string | null = null;
 
 
-  constructor(private route: Router, private http: HttpClient) {}
+  constructor(private route: ActivatedRoute, private http: HttpClient) {}
 
   ngOnInit() {
     const jugadoresUrl = `${this.baseUrl}/usuarios`;
     const equiposUrl = `${this.baseUrl}/equipos`;
+    const juegosUrl = `${this.baseUrl}/estadisticas/${this.idJugador}`
     this.obtenerJugadores(jugadoresUrl);
     this.obtenerEquipos(equiposUrl);
     console.log("------")
@@ -70,7 +72,7 @@ export class MatchesComponent {
       }
     );
   }
-
+  
   onSubmit() {
     this.match.minutosjug = [this.minutosjug.toString(), this.segundosJugados.toString()];
     this.enviarDatos(this.match);

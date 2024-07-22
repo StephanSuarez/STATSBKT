@@ -40,9 +40,12 @@
       <h4>Total de Partidos</h4>
       <p>{{ estadisticasJugador?.length }}</p>
     </div>
-    <!-- Agrega más estadísticas si es necesario -->
   </div>
   <div class="ranking-container">
+    <select [ngModel]="selectedCategory" (ngModelChange)="onCategoryChange($event)">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+    
     <table class="table-card">
       <thead>
         <tr>
@@ -57,17 +60,16 @@
         </tr>
       </thead>
       <tbody>
-        <!-- <tr *ngFor="let juego of juegosDatos">
-          <td>
-            <a [href]="juego.teamUrl">
-              <img [src]="juego.teamLogo" alt="Logo" class="team-logo">
-              {{ juego.teamName }}
-            </a>
-          </td>
-          <td>{{ juego.rebounds }}</td>
-          <td>{{ juego.assists }}</td>
-          <td>{{ juego.totalPoints }}</td> 
-        </tr>-->
+        <tr *ngFor="let juego of juegosDatos">
+          <td>{{ juego.vs }}</td>
+          <td>{{ juego.minjug }}</td>
+          <td>{{ juego.pts }}</td>
+          <td>{{ juego.tc }}</td> 
+          <td>{{ juego.dosPts }}</td> 
+          <td>{{ juego.tresPts }}</td> 
+          <td>{{ juego.rebo }}</td> 
+          <td>{{ juego.ast }}</td> 
+        </tr>
       </tbody>
     </table>
   </div>

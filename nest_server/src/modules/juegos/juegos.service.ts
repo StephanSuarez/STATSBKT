@@ -34,7 +34,9 @@ export class JuegosService {
   }
 
   async findAll(): Promise<Juego[]> {
-    return await this.juegoRepositorio.find();
+    return await this.juegoRepositorio.find({
+      relations: ['jugador', 'equipoPropio', 'equipoRival']
+    });
   }
 
   async findOne(id: number): Promise<Juego> {
@@ -74,9 +76,8 @@ export class JuegosService {
    async getStatsPlayer(id: number) {
     const mathcesPlayer = await this.juegoRepositorio.find({
       where: { jugador: {id} },
-      relations: []
+      relations: ["jugador", "equipoRival"]
     });
-    console.log(mathcesPlayer)
     return mathcesPlayer
   }
 }
