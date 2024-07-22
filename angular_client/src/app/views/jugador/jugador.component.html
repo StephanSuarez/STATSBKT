@@ -42,9 +42,10 @@
     </div>
   </div>
   <div class="ranking-container">
-    <select [ngModel]="selectedCategory" (ngModelChange)="onCategoryChange($event)">
+    <select [(ngModel)]="selectedCategory" (ngModelChange)="onCategoryChange($event)">
       <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
     </select>
+    
     
     <table class="table-card">
       <thead>

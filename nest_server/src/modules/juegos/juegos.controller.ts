@@ -1,4 +1,4 @@
-import { Controller, Get, Post, Body, Patch, Param, Delete } from '@nestjs/common';
+import { Controller, Get, Post, Body, Patch, Param, Delete, Query } from '@nestjs/common';
 import { JuegosService } from './juegos.service';
 import { CreateJuegoDto } from './dto/create-juego.dto';
 import { UpdateJuegoDto } from './dto/update-juego.dto';
@@ -34,7 +34,10 @@ export class JuegosController {
 
   // STATS PLAYER
   @Get('estadisticas/:id')
-  getStats(@Param('id') id: string) {
-    return this.juegosService.getStatsPlayer(+id);
+  getStats(
+    @Param('id') id: string,
+    @Query('categoria') categoria: string = ""
+  ) {
+    return this.juegosService.getStatsPlayer(+id, categoria);
   }
 }

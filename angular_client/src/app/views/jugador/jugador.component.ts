@@ -45,12 +45,12 @@ export class JugadorComponent {
         }),
         switchMap(equipoJugador => {
           this.equipoJugador = equipoJugador;
-          return this.obtenerEstadisticasJugador(this.jugadorId);
+          const urlEstadisticas = `${this.apiUrl}/juegos/estadisticas/${this.jugadorId}`
+          return this.obtenerEstadisticasJugador(urlEstadisticas);
         })
       ).subscribe(
         (estadisticasJugador) => {
           this.estadisticasJugador = estadisticasJugador;
-          console.log(this.jugador, this.equipoJugador, this.estadisticasJugador);
           this.calcularDatosPromedio(estadisticasJugador);
           this.calcularDatosTabla(estadisticasJugador);
         },
@@ -69,8 +69,8 @@ export class JugadorComponent {
     return this.http.get<any>(`${this.apiUrl}/equipos/${id}`);
   }
 
-  obtenerEstadisticasJugador(id: string): Observable<any> {
-    return this.http.get<any>(`${this.apiUrl}/juegos/estadisticas/${id}`);
+  obtenerEstadisticasJugador(url: string): Observable<any> {
+    return this.http.get<any>(url);
   }
 
   calcularDatosPromedio(juegos: any[]) {
@@ -110,6 +110,7 @@ export class JugadorComponent {
   }
   
   calcularDatosTabla(juegos: any){
+    this.juegosDatos = []
     for(let juego of juegos){
       const dato = {
         vs: juego.equipoRival.nombreEquipo,
@@ -121,34 +122,25 @@ export class JugadorComponent {
         rebo: juego.rebotes,
         ast: juego.asistencias
       }
-      console.log(dato)
       this.juegosDatos.push(dato)
     }
   }
 
   calcularMinutos(minutosjug: number[]): number {
-    console.log(minutosjug);
-  
-    // Asume que el array puede tener uno o dos elementos
     let minutos: number = 0;
     let segundos: number = 0;
   
     if (minutosjug.length === 1) {
-      // Si el array tiene solo un elemento, es el total de minutos
       minutos = minutosjug[0];
     } else if (minutosjug.length === 2) {
-      // Si el array tiene dos elementos, calcula los minutos y segundos
       minutos = minutosjug[0];
       segundos = minutosjug[1];
     }
-    console.log("m", minutos, " S", segundos)
+
     const segAMin: number = parseFloat((segundos/60).toFixed(2))
   
-    console.log(segAMin)
-    // Convierte los segundos a minutos y suma a los minutos totales
     const totalMinutos: number = minutos + segAMin
   
-    console.log(`Total Minutos: ${totalMinutos} type: ${typeof(totalMinutos)}`);
     return totalMinutos;
   }
   
@@ -158,11 +150,25 @@ export class JugadorComponent {
     return puntosTotales
   }
 
-  onCategoryChange(event: Event): void {
-    const selectElement = event.target as HTMLSelectElement;
-    this.selectedCategory = selectElement.value;
-    console.log('Selected category:', this.selectedCategory);
+  onCategoryChange(newValue: string): void {
+    this.selectedCategory = newValue;
+    let urlJuego: string = "";
+    if(this.selectedCategory == "Zonal"){
+      urlJuego = `${this.apiUrl}/juegos/estadisticas/${this.jugadorId}?categoria=zonal`;
+    }
+    if(this.selectedCategory == "Nacional"){
+      urlJuego = `${this.apiUrl}/juegos/estadisticas/${this.jugadorId}?categoria=nacional`;
+    }
+    if(this.selectedCategory == ""){
+      urlJuego = `${this.apiUrl}/juegos/estadisticas/${this.jugadorId}`;
+    }
+    this.obtenerEstadisticasJugador(urlJuego).subscribe(
+      (estadisticas)=>{
+        this.calcularDatosTabla(estadisticas)
+      }
+    );
   }
+  
 
   player: any = {
     fondo: 'assets/imgs/escudos/fondoU.png',

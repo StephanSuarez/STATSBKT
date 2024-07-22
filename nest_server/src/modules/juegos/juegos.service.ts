@@ -73,11 +73,20 @@ export class JuegosService {
   }
 
    // STATS PLAYER
-   async getStatsPlayer(id: number) {
-    const mathcesPlayer = await this.juegoRepositorio.find({
-      where: { jugador: {id} },
-      relations: ["jugador", "equipoRival"]
-    });
+   async getStatsPlayer(id: number, categoria: string) {
+    let mathcesPlayer: any;
+    if(categoria == ""){
+      mathcesPlayer = await this.juegoRepositorio.find({
+        where: { jugador: {id} },
+        relations: ["jugador", "equipoRival"]
+      })
+    }
+    else{
+      mathcesPlayer = await this.juegoRepositorio.find({
+        where: { jugador: {id}, category: categoria },
+        relations: ["jugador", "equipoRival"]
+      });
+    }
     return mathcesPlayer
   }
 }
