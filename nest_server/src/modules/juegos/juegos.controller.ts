@@ -31,7 +31,7 @@ export class JuegosController {
   remove(@Param('id') id: string) {
     return this.juegosService.remove(+id);
   }
-
+  
   // STATS PLAYER
   @Get('estadisticas/:id')
   getStats(
@@ -40,4 +40,22 @@ export class JuegosController {
   ) {
     return this.juegosService.getStatsPlayer(+id, categoria);
   }
+  
+  // MAS REBOTES
+  @Get('estadisticas/rebotes')
+  getTopRebotes(){
+    return this.juegosService.getTopRebotes()
+  }
+  
+  // MAS ASISTENCIAS
+  @Get('estadisticas/asistencias')
+  getTopAsistencias(){
+    return this.juegosService.getTopAsistencias()
+  }
+
+   // MAS PUNTOS
+   @Get('estadisticas/puntos')
+   getTopPuntos(){
+     return this.juegosService.getTopRebotes()
+   }
 }

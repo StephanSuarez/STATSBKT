@@ -2,7 +2,7 @@ import { Injectable, NotFoundException } from '@nestjs/common';
 import { CreateJuegoDto } from './dto/create-juego.dto';
 import { UpdateJuegoDto } from './dto/update-juego.dto';
 import { Juego } from './entities/juego.entity';
-import { Repository } from 'typeorm';
+import { Not, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
 
 @Injectable()
@@ -73,7 +73,7 @@ export class JuegosService {
   }
 
    // STATS PLAYER
-   async getStatsPlayer(id: number, categoria: string) {
+  async getStatsPlayer(id: number, categoria: string) {
     let mathcesPlayer: any;
     if(categoria == ""){
       mathcesPlayer = await this.juegoRepositorio.find({
@@ -89,4 +89,39 @@ export class JuegosService {
     }
     return mathcesPlayer
   }
+
+  // JUGADORES CON MAS REBOTES\
+  async getTopRebotes() {
+    try {
+      console.log('a')
+      const juegos = await this.juegoRepositorio.find({
+        where: { rebotes: Not(0) },
+        relations: ["jugador", "equipoPropio", "equipoRival"]
+      });
+      
+      const jugadoresMasRebotes = juegos.sort((a, b) => b.rebotes - a.rebotes).slice(0, 3);
+
+      return jugadoresMasRebotes;
+    } catch (error) {
+      throw new Error(`Error al obtener los jugadores con más rebotes: ${error.message}`);
+    }
+  }
+
+  async getTopAsistencias() {
+    try {
+      console.log('a')
+      const juegos = await this.juegoRepositorio.find({
+        where: { rebotes: Not(0) },
+        relations: ["jugador", "equipoPropio", "equipoRival"]
+      });
+      
+      const jugadoresMasAsistencias = juegos.sort((a, b) => b.asistencias - a.asistencias).slice(0, 3);
+
+      return jugadoresMasAsistencias;
+    } catch (error) {
+      throw new Error(`Error al obtener los jugadores con más rebotes: ${error.message}`);
+    }
+  }
+
+
 }
