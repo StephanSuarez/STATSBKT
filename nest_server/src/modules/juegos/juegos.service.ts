@@ -90,15 +90,14 @@ export class JuegosService {
     return mathcesPlayer
   }
 
-  // JUGADORES CON MAS REBOTES\
+  // JUGADORES CON MAS REBOTES
   async getTopRebotes() {
     try {
-      console.log('a')
       const juegos = await this.juegoRepositorio.find({
         where: { rebotes: Not(0) },
         relations: ["jugador", "equipoPropio", "equipoRival"]
       });
-      
+
       const jugadoresMasRebotes = juegos.sort((a, b) => b.rebotes - a.rebotes).slice(0, 3);
 
       return jugadoresMasRebotes;
@@ -107,19 +106,50 @@ export class JuegosService {
     }
   }
 
+
+  // JUGADORES CON MAS ASISTENCIAS
   async getTopAsistencias() {
     try {
-      console.log('a')
       const juegos = await this.juegoRepositorio.find({
-        where: { rebotes: Not(0) },
+        where: { asistencias: Not(0) },
         relations: ["jugador", "equipoPropio", "equipoRival"]
       });
-      
+
       const jugadoresMasAsistencias = juegos.sort((a, b) => b.asistencias - a.asistencias).slice(0, 3);
 
       return jugadoresMasAsistencias;
     } catch (error) {
-      throw new Error(`Error al obtener los jugadores con más rebotes: ${error.message}`);
+      throw new Error(`Error al obtener los jugadores con más asistencias: ${error.message}`);
+    }
+  }
+
+
+  // JUGADORES CON MAS PUNTOS
+  async getTopPuntos() {
+    try {
+      // Obtenemos todos los juegos y las relaciones necesarias
+      const juegos = await this.juegoRepositorio.find({
+        relations: ["jugador"] // Asegúrate de que el nombre de la relación esté correcto
+      });
+
+      // Calculamos los puntos totales para cada juego
+      const jugadoresPuntos = juegos.map((juego) => {
+        let totalPuntos = 0;
+        totalPuntos += juego.dosPuntosE * 2;
+        totalPuntos += juego.tresPuntosE * 3;
+        totalPuntos += juego.tirolibreE;
+        return {
+          ...juego,
+          totalPuntos
+        };
+      });
+
+      // Ordenamos los juegos por los puntos totales en orden descendente y tomamos los 3 primeros
+      const jugadoresMasPuntos = jugadoresPuntos.sort((a, b) => b.totalPuntos - a.totalPuntos).slice(0, 3);
+
+      return jugadoresMasPuntos;
+    } catch (err) {
+      throw new Error(`Error al obtener jugadores con más puntos: ${err.message}`);
     }
   }
 

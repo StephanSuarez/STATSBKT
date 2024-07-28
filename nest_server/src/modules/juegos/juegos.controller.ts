@@ -42,20 +42,22 @@ export class JuegosController {
   }
   
   // MAS REBOTES
-  @Get('estadisticas/rebotes')
+  @Get('stats/rebotes')
   getTopRebotes(){
     return this.juegosService.getTopRebotes()
   }
   
   // MAS ASISTENCIAS
-  @Get('estadisticas/asistencias')
+  @Get('stats/asistencias')
   getTopAsistencias(){
     return this.juegosService.getTopAsistencias()
   }
 
-   // MAS PUNTOS
-   @Get('estadisticas/puntos')
-   getTopPuntos(){
-     return this.juegosService.getTopRebotes()
-   }
+  // MAS PUNTOS
+  @Get('stats/puntos')
+  getTopPuntos(){
+   return this.juegosService.getTopPuntos()
+  }
+
+
 }

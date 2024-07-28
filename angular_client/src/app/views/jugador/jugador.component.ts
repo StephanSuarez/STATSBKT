@@ -3,7 +3,7 @@ import { environment } from '../../../environments/environment.development';
 import { ActivatedRoute } from '@angular/router';
 import { HttpClient, withXsrfConfiguration } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { switchMap } from 'rxjs/operators';
+import { min, switchMap } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
@@ -27,7 +27,8 @@ export class JugadorComponent {
     puntos: 0,
     asistencias: 0,
     rebotes: 0,
-    minutosJugados: 0
+    minutosJugados: 0,
+    totalPartidos: 0
   }
   juegosDatos: JuegoDato[] = [];
   categories: string[] = ["", "Zonal", "Nacional"]
@@ -74,6 +75,9 @@ export class JugadorComponent {
   }
 
   calcularDatosPromedio(juegos: any[]) {
+    // TOTAL PARTIDOS 
+    this.datosPromedio.totalPartidos = juegos.length;
+
     // PUNTOS
     const totalPuntos = juegos.reduce((acumulador, juego) => {
       const puntos = (juego.dosPuntosE * 2 + juego.tresPuntosE * 3 + juego.tirolibreE);
@@ -127,7 +131,7 @@ export class JugadorComponent {
   }
 
   calcularMinutos(minutosjug: number[]): number {
-    let minutos: number = 0;
+    let minutos: any;
     let segundos: number = 0;
   
     if (minutosjug.length === 1) {
@@ -137,9 +141,11 @@ export class JugadorComponent {
       segundos = minutosjug[1];
     }
 
-    const segAMin: number = parseFloat((segundos/60).toFixed(2))
+    const segAMin: number = parseFloat((segundos/60).toFixed(2));
+
+    let minNum = parseFloat(minutos);
   
-    const totalMinutos: number = minutos + segAMin
+    const totalMinutos: number = minNum + segAMin;
   
     return totalMinutos;
   }
@@ -164,7 +170,9 @@ export class JugadorComponent {
     }
     this.obtenerEstadisticasJugador(urlJuego).subscribe(
       (estadisticas)=>{
-        this.calcularDatosTabla(estadisticas)
+        console.log(estadisticas)
+        this.calcularDatosPromedio(estadisticas);
+        this.calcularDatosTabla(estadisticas);
       }
     );
   }
