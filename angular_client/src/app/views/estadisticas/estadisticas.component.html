@@ -19,16 +19,16 @@
       </tr>
     </thead>
     <tbody>
-      <tr *ngFor="let stat of stats">
+      <tr *ngFor="let topE of topEquipo">
         <td>
-          <a [href]="stat.teamUrl">
-            <img [src]="stat.teamLogo" alt="Logo" class="team-logo">
-            {{ stat.teamName }}
+          <a [href]="topE.teamUrl">
+            <img [src]="topE.equipo.escudo" alt="Logo" class="team-logo">
+            {{ topE.equipo.nombreEquipo }}
           </a>
         </td>
-        <td>{{ stat.avgPoints }}</td>
-        <td>{{ stat.wins }}</td>
-        <td>{{ stat.losses }}</td>
+        <td>{{ topE.promedioPuntos }}</td>
+        <td>{{ topE.victorias }}</td>
+        <td>{{ topE.derrotas }}</td>
       </tr>
     </tbody>
   </table>

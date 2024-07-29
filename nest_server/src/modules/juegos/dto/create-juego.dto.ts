@@ -13,4 +13,5 @@ export class CreateJuegoDto {
     jugadorId: any
     equipoAId: any
     equipoBId: any
+  victoria: boolean
 }

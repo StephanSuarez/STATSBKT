@@ -5,7 +5,7 @@
     </div>
     <div class="leads-content">
       <div class="leads-column" *ngFor="let lead of section.leads">
-        <app-card [player]="lead"></app-card>
+        <app-card [player]="lead" [statType]="section.title.toLowerCase()"></app-card>
       </div>
     </div>
   </div>

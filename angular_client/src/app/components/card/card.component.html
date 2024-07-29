@@ -1,13 +1,13 @@
 <!-- card.component.html -->
-<div (click)="goToView(player.id)" class="jugador-card">
+<div (click)="goToView(player.jugador.id)" class="jugador-card">
     <div class="jugador-info">
-        <div class="jugador-number">{{ player.numero }}</div>
+        <div class="jugador-number">{{ getStatValue() }}</div>
         <div class="jugador-image">
             <img [src]="imageurl" alt="Imagen">
         </div>
         <div class="jugador-details">
-            <h2 class="jugador-name">{{ player.nombreUsuario }}</h2>
-            <span class="jugador-position">{{ player.team }}</span>
+            <h2 class="jugador-name">{{ player.jugador.nombreUsuario }}</h2>
+            <span class="jugador-position">{{ player.equipoPropio.nombreEquipo }}</span>
         </div>
     </div>
 </div>

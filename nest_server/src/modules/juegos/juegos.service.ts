@@ -4,6 +4,7 @@ import { UpdateJuegoDto } from './dto/update-juego.dto';
 import { Juego } from './entities/juego.entity';
 import { Not, Repository } from 'typeorm';
 import { InjectRepository } from '@nestjs/typeorm';
+import { Equipo } from '../equipos/entities/equipo.entity';
 
 @Injectable()
 export class JuegosService {
@@ -28,6 +29,7 @@ export class JuegosService {
     nuevoJuego.equipoPropio = createJuegoDto.equipoAId;
     nuevoJuego.equipoRival = createJuegoDto.equipoBId;
     nuevoJuego.category = createJuegoDto.category;
+    nuevoJuego.victoria = createJuegoDto.victoria
 
     const juegoCreado = await this.juegoRepositorio.save(nuevoJuego); 
     return juegoCreado;
@@ -129,7 +131,7 @@ export class JuegosService {
     try {
       // Obtenemos todos los juegos y las relaciones necesarias
       const juegos = await this.juegoRepositorio.find({
-        relations: ["jugador"] // Asegúrate de que el nombre de la relación esté correcto
+        relations: ["jugador", "equipoPropio"] // Asegúrate de que el nombre de la relación esté correcto
       });
 
       // Calculamos los puntos totales para cada juego
@@ -152,6 +154,72 @@ export class JuegosService {
       throw new Error(`Error al obtener jugadores con más puntos: ${err.message}`);
     }
   }
+
+  // EQUIPOS CON MAS VICTORIAS, DERROTAS Y PROMEDIO DE PUNTOS
+  async getTopVictoriasYDerrotasYPromedioPuntosPorEquipo() {
+    try {
+      // Obtenemos todos los juegos y las relaciones necesarias
+      const juegos = await this.juegoRepositorio.find({
+        relations: ['equipoPropio']
+      });
+
+      // Creamos un diccionario para contar victorias, derrotas y calcular el promedio de puntos
+      const resultadosPorEquipo: { 
+        [key: number]: { 
+          equipo: Equipo; 
+          victorias: number; 
+          derrotas: number; 
+          puntosTotales: number; 
+          juegosContados: Set<string> 
+        } 
+      } = {};
+
+      juegos.forEach((juego) => {
+        const equipoId = juego.equipoPropio.id;
+        const fecha = juego.fecha.toISOString().split('T')[0]; // Convertimos la fecha a un formato de solo fecha (YYYY-MM-DD)
+
+        if (!resultadosPorEquipo[equipoId]) {
+          resultadosPorEquipo[equipoId] = { 
+            equipo: juego.equipoPropio, 
+            victorias: 0, 
+            derrotas: 0, 
+            puntosTotales: 0, 
+            juegosContados: new Set() 
+          };
+        }
+
+        // Solo contamos victorias, derrotas y puntos si la fecha no está ya en el set
+        if (!resultadosPorEquipo[equipoId].juegosContados.has(fecha)) {
+          if (juego.victoria) {
+            resultadosPorEquipo[equipoId].victorias += 1;
+          } else {
+            resultadosPorEquipo[equipoId].derrotas += 1;
+          }
+
+          // Calcular puntos totales para el equipo propio
+          const puntosJuego = juego.dosPuntosE * 2 + juego.tresPuntosE * 3 + juego.tirolibreE;
+          resultadosPorEquipo[equipoId].puntosTotales += puntosJuego;
+
+          // Añadir fecha al set
+          resultadosPorEquipo[equipoId].juegosContados.add(fecha);
+        }
+      });
+
+      // Convertimos el diccionario en un array y ordenamos por victorias en orden descendente
+      const equiposMasResultados = Object.values(resultadosPorEquipo)
+        .sort((a, b) => b.victorias - a.victorias)
+        .slice(0, 5)
+        .map(({ equipo, victorias, derrotas, puntosTotales, juegosContados }) => {
+          const promedioPuntos = puntosTotales / juegosContados.size;
+          return { equipo, victorias, derrotas, promedioPuntos };
+        }); // Incluimos derrotas y promedio de puntos en el resultado final
+
+      return equiposMasResultados;
+    } catch (err) {
+      throw new Error(`Error al obtener equipos con más victorias, derrotas y promedio de puntos: ${err.message}`);
+    }
+  }
+
 
 
 }

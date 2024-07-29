@@ -13,4 +13,5 @@ export class CreateJuegoDto {
   jugadorId: number
   equipo: number
   equipoRival: number
+  victoria: boolean
 }

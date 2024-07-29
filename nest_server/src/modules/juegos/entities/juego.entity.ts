@@ -40,6 +40,9 @@ export class Juego {
     @Column({ type: 'int' })
     asistencias: number;
 
+    @Column({ type: 'boolean' })
+    victoria: boolean;
+
     @ManyToOne(() => Usuario, usuario => usuario.juegos)
     jugador: Usuario;
 

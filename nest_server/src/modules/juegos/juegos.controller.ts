@@ -59,5 +59,10 @@ export class JuegosController {
    return this.juegosService.getTopPuntos()
   }
 
+  // EQUIPOS CON MAS VICTORIAS
+  @Get('stats/equipos')
+  getTopEquipos(){
+    return this.juegosService.getTopVictoriasYDerrotasYPromedioPuntosPorEquipo();
+  }
 
 }
