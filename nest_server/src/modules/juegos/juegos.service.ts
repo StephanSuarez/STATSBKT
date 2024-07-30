@@ -219,7 +219,4 @@ export class JuegosService {
       throw new Error(`Error al obtener equipos con más victorias, derrotas y promedio de puntos: ${err.message}`);
     }
   }
-
-
-
 }

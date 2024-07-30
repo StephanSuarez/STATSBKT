@@ -18,6 +18,31 @@
       </div>
       <div class="form-row">
         <div class="form-group">
+          <label for="equipoAId">Equipo del Jugador:</label>
+          <select id="equipoAId" name="equipoAId" [(ngModel)]="match.equipoAId" required>
+            <option *ngFor="let equipo of equipos" [ngValue]="equipo.id">{{equipo.nombreEquipo}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="equipoBId">Equipo Contrincante:</label>
+          <select id="equipoBId" name="equipoBId" [(ngModel)]="match.equipoBId" required>
+            <option *ngFor="let equipo of equipos" [ngValue]="equipo.id">{{equipo.nombreEquipo}}</option>
+          </select>
+        </div>
+        <div class="form-group">
+          <label for="equipoBId">Resultado del Juego:</label>
+          <div class="d-flex">
+            <input type="radio" id="victoria" value="victoria" name="result" [(ngModel)]="resultGrame">
+            <label for="victoria">Victoria</label>
+          </div>
+          <div class="d-flex">
+            <input type="radio" id="derrota" value="derrota" name="result" [(ngModel)]="resultGrame">
+            <label for="derrota">Derrota</label>
+          </div>
+        </div>
+      </div>
+      <div class="form-row">
+        <div class="form-group">
           <label for="jugadorId">Jugador:</label>
           <select id="jugadorId" name="jugadorId" [(ngModel)]="match.jugadorId" required>
             <option *ngFor="let jugador of jugadores" [ngValue]="jugador.id">{{jugador.nombreUsuario}}</option>
@@ -70,20 +95,6 @@
         <div class="form-group">
           <label for="asistencias">Asistencias:</label>
           <input type="number" id="asistencias" name="asistencias" [(ngModel)]="match.asistencias" required>
-        </div>
-      </div>
-      <div class="form-row">
-        <div class="form-group">
-          <label for="equipoAId">Equipo del Jugador:</label>
-          <select id="equipoAId" name="equipoAId" [(ngModel)]="match.equipoAId" required>
-            <option *ngFor="let equipo of equipos" [ngValue]="equipo.id">{{equipo.nombreEquipo}}</option>
-          </select>
-        </div>
-        <div class="form-group">
-          <label for="equipoBId">Equipo Contrincante:</label>
-          <select id="equipoBId" name="equipoBId" [(ngModel)]="match.equipoBId" required>
-            <option *ngFor="let equipo of equipos" [ngValue]="equipo.id">{{equipo.nombreEquipo}}</option>
-          </select>
         </div>
       </div>
       <button type="submit">Crear Partido</button>

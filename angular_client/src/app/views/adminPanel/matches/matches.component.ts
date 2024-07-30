@@ -1,5 +1,5 @@
 import { HttpClient } from '@angular/common/http';
-import { Component } from '@angular/core';
+import { Component, viewChild } from '@angular/core';
 import { FormsModule } from '@angular/forms';
 import { ActivatedRoute } from '@angular/router';
 import { CommonModule } from '@angular/common';
@@ -19,6 +19,7 @@ export class MatchesComponent {
   categories: string[] = ["Zonal", "Nacional"];
   minutosjug: number = 0;
   segundosJugados: number = 0;
+  resultGrame: string = ""
   match = {
     category: '',
     date: '',
@@ -33,7 +34,8 @@ export class MatchesComponent {
     asistencias: '',
     minutosjug: [""],
     equipoAId: '',
-    equipoBId: ''
+    equipoBId: '',
+    victoria: false
   };
 
   successMessage: string | null = null;
@@ -75,6 +77,8 @@ export class MatchesComponent {
   
   onSubmit() {
     this.match.minutosjug = [this.minutosjug.toString(), this.segundosJugados.toString()];
+    this.match.victoria = this.resultGrame == "victoria" ? true : false;
+
     this.enviarDatos(this.match);
     this.successMessage = "Juego registrado correctamente"
     this.limpiarFormulario()
@@ -106,7 +110,8 @@ export class MatchesComponent {
       asistencias: '',
       minutosjug: [""],
       equipoAId: '',
-      equipoBId: ''
+      equipoBId: '',
+      victoria: false
     };
     this.minutosjug = 0;
     this.segundosJugados = 0;

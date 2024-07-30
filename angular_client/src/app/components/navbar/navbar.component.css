@@ -6,6 +6,12 @@ a, .nav-link {
 #nav {
   background-color: #000000 !important;
 }
+
+.container-fluid{
+  max-width: 1280px;
+
+}
+
 .nav-link{
   cursor: pointer;
 }

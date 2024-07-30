@@ -30,6 +30,14 @@ export class JugadorComponent {
     minutosJugados: 0,
     totalPartidos: 0
   }
+  datosPromedioTabla={
+    minutosJugados: 0,
+    puntos: 0,
+
+  }
+  totalParaTabla={
+
+  }
   juegosDatos: JuegoDato[] = [];
   categories: string[] = ["", "Zonal", "Nacional"]
   selectedCategory: string = this.categories[0]; 
@@ -111,6 +119,10 @@ export class JugadorComponent {
     }, 0);
     const promedioMinutosJugados = totalMinutosJugados / juegos.length;
     this.datosPromedio.minutosJugados = parseFloat(promedioMinutosJugados.toFixed(2));
+  }
+
+  calcularDatosPromedioTabla(juegos: any){
+    this.datosPromedioTabla.puntos = this.datosPromedio.puntos
   }
   
   calcularDatosTabla(juegos: any){

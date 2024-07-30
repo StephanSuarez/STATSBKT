@@ -56,6 +56,7 @@
           <th>TC</th> <!--TIROS DE CAMPO -->
           <th>2PTS</th>
           <th>3PTS</th>
+          <th>TC</th> <!--TIROS DE CAMPO -->
           <th>REBO</th>
           <th>AST</th>
         </tr>
@@ -68,8 +69,31 @@
           <td>{{ juego.tc }}</td> 
           <td>{{ juego.dosPts }}</td> 
           <td>{{ juego.tresPts }}</td> 
+          <td></td> 
           <td>{{ juego.rebo }}</td> 
           <td>{{ juego.ast }}</td> 
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+        <tr>
+          <td>Promedio</td>
+          <td>{{ datosPromedioTabla.minutosJugados }}</td>
+          <td>{{ datosPromedio.puntos }}</td>
+          <td>{{ datosPromedio.minutosJugados }}</td>
+          <td>{{ datosPromedio.minutosJugados }}</td>
+          <td>{{ datosPromedio.minutosJugados }}</td>
+          <td>{{ datosPromedio.rebotes }}</td>
+          <td>{{ datosPromedio.asistencias }}</td>
+          <td>{{ datosPromedio.asistencias }}</td>
         </tr>
       </tbody>
     </table>
