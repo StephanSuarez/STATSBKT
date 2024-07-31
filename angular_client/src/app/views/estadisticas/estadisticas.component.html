@@ -21,7 +21,7 @@
     <tbody>
       <tr *ngFor="let topE of topEquipo">
         <td>
-          <a [href]="topE.teamUrl">
+          <a [href]="equipoUrl+topE.equipo.id">
             <img [src]="topE.equipo.escudo" alt="Logo" class="team-logo">
             {{ topE.equipo.nombreEquipo }}
           </a>

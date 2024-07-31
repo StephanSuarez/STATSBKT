@@ -33,7 +33,14 @@ export class JugadorComponent {
   datosPromedioTabla={
     minutosJugados: 0,
     puntos: 0,
+    rebotes: 0,
+    asistencias: 0,
 
+    // 
+    tirosTotales: "",
+    tirosdos: "",
+    tirostres: "",
+    tirosLibres: ""
   }
   totalParaTabla={
 
@@ -62,6 +69,7 @@ export class JugadorComponent {
           this.estadisticasJugador = estadisticasJugador;
           this.calcularDatosPromedio(estadisticasJugador);
           this.calcularDatosTabla(estadisticasJugador);
+          this.calcularDatosPromedioTabla(estadisticasJugador);
         },
         (err) => {
           console.log(err);
@@ -122,8 +130,20 @@ export class JugadorComponent {
   }
 
   calcularDatosPromedioTabla(juegos: any){
-    this.datosPromedioTabla.puntos = this.datosPromedio.puntos
-  }
+    this.datosPromedioTabla.puntos = this.datosPromedio.puntos;
+    this.datosPromedioTabla.minutosJugados = this.datosPromedio.minutosJugados;
+    this.datosPromedioTabla.rebotes = this.datosPromedio.rebotes;
+    this.datosPromedioTabla.asistencias = this.datosPromedio.asistencias;
+    
+    // this.datosPromedioTabla.tirosLibres
+    let tlNumerador = 0
+    let tlDenominador = 0
+    for(let juego of juegos){
+      tlNumerador += juego.tirolibreE
+      tlDenominador += juego.tirolibreF + juego.tirolibreE
+    }
+    this.datosPromedioTabla.tirosLibres = ""+(tlNumerador/juegos.length).toFixed(2)+ " / "+ (tlDenominador/juegos.length).toFixed(2)
+    }
   
   calcularDatosTabla(juegos: any){
     this.juegosDatos = []
@@ -132,9 +152,10 @@ export class JugadorComponent {
         vs: juego.equipoRival.nombreEquipo,
         minjug: this.calcularMinutos(juego.minutosjug),
         pts: this.calcularPuntos(juego.dosPuntosE, juego.tresPuntosE, juego.tirolibreE),
-        tc: `${juego.tirolibreE}/${juego.tirolibreE+juego.tirolibreF}`,
+        tc: `${juego.dosPuntosE+juego.tresPuntosE+juego.tirolibreE}/${juego.dosPuntosE+juego.dosPuntosF+juego.tresPuntosE+juego.tresPuntosF+juego.tirolibreE+juego.tirolibreF}`,
         dosPts: `${juego.dosPuntosE}/${juego.dosPuntosE+juego.dosPuntosF}`,
         tresPts: `${juego.tresPuntosE}/${juego.tresPuntosE+juego.tresPuntosF}`,
+        tl: `${juego.tirolibreE}/${juego.tirolibreE+juego.tirolibreF}`,
         rebo: juego.rebotes,
         ast: juego.asistencias
       }
@@ -163,8 +184,8 @@ export class JugadorComponent {
   }
   
   calcularPuntos(...pts: number[]){
-    let [dosPts, tresPts, tc] = pts
-    let puntosTotales: number = dosPts*2 + tresPts*3 + tc
+    let [dosPts, tresPts, tl] = pts
+    let puntosTotales: number = dosPts*2 + tresPts*3 + tl
     return puntosTotales
   }
 
@@ -185,6 +206,7 @@ export class JugadorComponent {
         console.log(estadisticas)
         this.calcularDatosPromedio(estadisticas);
         this.calcularDatosTabla(estadisticas);
+        this.calcularDatosPromedioTabla(estadisticas);
       }
     );
   }
@@ -205,6 +227,7 @@ interface JuegoDato {
   tc: string;
   dosPts: string;
   tresPts: string;
+  tl: string;
   rebo: number;
   ast: number;
 }
