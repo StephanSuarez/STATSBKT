@@ -5,6 +5,7 @@
     </div>
     <div class="team-logo">
       <img [src]="player.imgEscudo" alt="Team Logo">
+      <!-- <img [src]="equipoJugador.escudo" alt="Team Logo"> -->
     </div>
     <div class="player-avatar">
       <img [src]="player.image" alt="Avatar de {{ player.name }}">
@@ -75,22 +76,22 @@
         </tr>
         <tr>
           <td>Total</td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ totalParaTabla.minutosJugados }}</td>
+          <td>{{ totalParaTabla.puntos }}</td>
+          <td>{{ totalParaTabla.tirosTotales }}</td>
+          <td>{{ totalParaTabla.tirosdos }}</td>
+          <td>{{ totalParaTabla.tirostres }}</td>
+          <td>{{ totalParaTabla.tirosLibres }}</td>
+          <td>{{ totalParaTabla.rebotes }}</td>
+          <td>{{ totalParaTabla.asistencias }}</td>
         </tr>
         <tr>
           <td>Promedio</td>
           <td>{{ datosPromedioTabla.minutosJugados }}</td>
           <td>{{ datosPromedioTabla.puntos }}</td>
-          <td></td>
-          <td></td>
-          <td></td>
+          <td>{{ datosPromedioTabla.tirosTotales }}</td>
+          <td>{{ datosPromedioTabla.tirosdos }}</td>
+          <td>{{ datosPromedioTabla.tirostres }}</td>
           <td>{{ datosPromedioTabla.tirosLibres }}</td>
           <td>{{ datosPromedioTabla.rebotes }}</td>
           <td>{{ datosPromedioTabla.asistencias }}</td>

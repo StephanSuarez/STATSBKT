@@ -35,7 +35,6 @@ export class JugadorComponent {
     puntos: 0,
     rebotes: 0,
     asistencias: 0,
-
     // 
     tirosTotales: "",
     tirosdos: "",
@@ -43,7 +42,15 @@ export class JugadorComponent {
     tirosLibres: ""
   }
   totalParaTabla={
-
+    minutosJugados: 0,
+    puntos: 0,
+    rebotes: 0,
+    asistencias: 0,
+    // 
+    tirosTotales: "",
+    tirosdos: "",
+    tirostres: "",
+    tirosLibres: ""
   }
   juegosDatos: JuegoDato[] = [];
   categories: string[] = ["", "Zonal", "Nacional"]
@@ -61,7 +68,7 @@ export class JugadorComponent {
         }),
         switchMap(equipoJugador => {
           this.equipoJugador = equipoJugador;
-          const urlEstadisticas = `${this.apiUrl}/juegos/estadisticas/${this.jugadorId}`
+          const urlEstadisticas = `${this.apiUrl}/juegos/estadisticas/${this.jugadorId}`;
           return this.obtenerEstadisticasJugador(urlEstadisticas);
         })
       ).subscribe(
@@ -70,6 +77,7 @@ export class JugadorComponent {
           this.calcularDatosPromedio(estadisticasJugador);
           this.calcularDatosTabla(estadisticasJugador);
           this.calcularDatosPromedioTabla(estadisticasJugador);
+          this.calcularDatosTotalTabla(estadisticasJugador);
         },
         (err) => {
           console.log(err);
@@ -136,14 +144,91 @@ export class JugadorComponent {
     this.datosPromedioTabla.asistencias = this.datosPromedio.asistencias;
     
     // this.datosPromedioTabla.tirosLibres
-    let tlNumerador = 0
-    let tlDenominador = 0
+    let tlNumerador = 0;
+    let tlDenominador = 0;
+    let tdNumerador = 0;
+    let tdDenominador = 0;
+    let ttNumerador = 0;
+    let ttDenominador = 0;
+    let totalNumerador = 0;
+    let totalDenominador = 0;
     for(let juego of juegos){
+      // uno
       tlNumerador += juego.tirolibreE
       tlDenominador += juego.tirolibreF + juego.tirolibreE
+      // dos
+      tdNumerador += juego.dosPuntosE
+      tdDenominador += juego.dosPuntosF + juego.dosPuntosE
+      // tres
+      ttNumerador += juego.tresPuntosE
+      ttDenominador += juego.tresPuntosF + juego.tresPuntosE
+      // total
+      totalNumerador += juego.tirolibreE + juego.dosPuntosE + juego.tresPuntosE;
+      totalDenominador += juego.tirolibreF + juego.tirolibreE + juego.dosPuntosF + juego.dosPuntosE + juego.tresPuntosF + juego.tresPuntosE;
     }
-    this.datosPromedioTabla.tirosLibres = ""+(tlNumerador/juegos.length).toFixed(2)+ " / "+ (tlDenominador/juegos.length).toFixed(2)
+    this.datosPromedioTabla.tirosLibres = ""+(tlNumerador/juegos.length).toFixed(2)+ " / "+ (tlDenominador/juegos.length).toFixed(2);
+    this.datosPromedioTabla.tirosdos = ""+(tdNumerador/juegos.length).toFixed(2)+ " / "+ (tdDenominador/juegos.length).toFixed(2);
+    this.datosPromedioTabla.tirostres = ""+(ttNumerador/juegos.length).toFixed(2)+ " / "+ (ttDenominador/juegos.length).toFixed(2);
+    this.datosPromedioTabla.tirosTotales = "" + (totalNumerador / juegos.length).toFixed(2) + " / " + (totalDenominador / juegos.length).toFixed(2);
+  }
+
+  calcularDatosTotalTabla(juegos: any){
+    this.totalParaTabla.rebotes = 0;
+    this.totalParaTabla.asistencias = 0;
+
+    // Inicializamos los acumuladores
+    let tlNumerador = 0;
+    let tlDenominador = 0;
+    let tdNumerador = 0;
+    let tdDenominador = 0;
+    let ttNumerador = 0;
+    let ttDenominador = 0;
+    let totalNumerador = 0;
+    let totalDenominador = 0;
+    let totalPuntos = 0;
+
+    // Acumulamos los valores
+    for(let juego of juegos){
+
+        const puntos: number = (juego.dosPuntosE * 2 + juego.tresPuntosE * 3 + juego.tirolibreE);
+        totalPuntos += puntos;
+
+        this.totalParaTabla.puntos += juego.puntos;
+        this.totalParaTabla.minutosJugados += juego.minutosJugados;
+        this.totalParaTabla.rebotes += juego.rebotes;
+        this.totalParaTabla.asistencias += juego.asistencias;
+
+        // Tiros libres
+        tlNumerador += juego.tirolibreE;
+        tlDenominador += juego.tirolibreF + juego.tirolibreE;
+        // Tiros de dos puntos
+        tdNumerador += juego.dosPuntosE;
+        tdDenominador += juego.dosPuntosF + juego.dosPuntosE;
+        // Tiros de tres puntos
+        ttNumerador += juego.tresPuntosE;
+        ttDenominador += juego.tresPuntosF + juego.tresPuntosE;
+        // Total de tiros
+        totalNumerador += juego.tirolibreE + juego.dosPuntosE + juego.tresPuntosE;
+        totalDenominador += juego.tirolibreF + juego.tirolibreE + juego.dosPuntosF + juego.dosPuntosE + juego.tresPuntosF + juego.tresPuntosE;
     }
+
+    // Asignamos los valores totales
+    this.totalParaTabla.tirosLibres = `${tlNumerador} / ${tlDenominador}`;
+    this.totalParaTabla.tirosdos = `${tdNumerador} / ${tdDenominador}`;
+    this.totalParaTabla.tirostres = `${ttNumerador} / ${ttDenominador}`;
+    this.totalParaTabla.tirosTotales = `${totalNumerador} / ${totalDenominador}`;
+    this.totalParaTabla.puntos = totalPuntos;
+    
+    // Minutos
+    const totalMinutosJugados = juegos.reduce((acumulador: any, juego: any) => {
+      const calcularMinutos = Number(juego.minutosjug[0]); // Asegurarse de que es un número
+      const calcularSegundos = juego.minutosjug.length === 2 ? Number(juego.minutosjug[1]) : 0; // Asegurarse de que es un número
+      const minutosTotales = calcularMinutos + (calcularSegundos / 60);
+      return acumulador + minutosTotales;
+    }, 0);
+    this.totalParaTabla.minutosJugados = parseFloat(totalMinutosJugados.toFixed(2));
+}
+
   
   calcularDatosTabla(juegos: any){
     this.juegosDatos = []
@@ -203,10 +288,10 @@ export class JugadorComponent {
     }
     this.obtenerEstadisticasJugador(urlJuego).subscribe(
       (estadisticas)=>{
-        console.log(estadisticas)
         this.calcularDatosPromedio(estadisticas);
         this.calcularDatosTabla(estadisticas);
         this.calcularDatosPromedioTabla(estadisticas);
+        this.calcularDatosTotalTabla(estadisticas);
       }
     );
   }
