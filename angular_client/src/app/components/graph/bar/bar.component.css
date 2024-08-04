@@ -1,0 +1,22 @@
+/* Estilos generales para el componente */
+:host {
+  display: block;
+  max-width: 800px; /* Ajusta el tamaño máximo del contenedor */
+  margin: 0 auto;
+  background-color: #f9f9f9; /* Fondo más claro */
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+canvas {
+  width: 100% !important;
+  height: 400px !important; /* Ajusta la altura del canvas */
+}
+
+/* Estilos para el texto */
+p {
+  color: #030303; /* Letras blancas */
+  text-align: center;
+  font-size: 1.2em;
+}

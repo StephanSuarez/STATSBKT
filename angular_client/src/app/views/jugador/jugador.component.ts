@@ -1,16 +1,18 @@
 import { Component } from '@angular/core';
 import { environment } from '../../../environments/environment.development';
 import { ActivatedRoute } from '@angular/router';
-import { HttpClient, withXsrfConfiguration } from '@angular/common/http';
+import { HttpClient } from '@angular/common/http';
 import { Observable } from 'rxjs';
-import { min, switchMap } from 'rxjs/operators';
+import { switchMap } from 'rxjs/operators';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
+import { BarComponent } from '../../components/graph/bar/bar.component';
+import { LineComponent } from '../../components/graph/line/line.component';
 
 @Component({
   selector: 'app-jugador',
   standalone: true,
-  imports: [CommonModule, FormsModule],
+  imports: [CommonModule, FormsModule, BarComponent, LineComponent],
   templateUrl: './jugador.component.html',
   styleUrl: './jugador.component.css'
 })
@@ -55,6 +57,13 @@ export class JugadorComponent {
   juegosDatos: JuegoDato[] = [];
   categories: string[] = ["", "Zonal", "Nacional"]
   selectedCategory: string = this.categories[0]; 
+
+  // Graph data
+  fechaGrafica: string[] = [];
+  minutosGrafica: number[] = [];
+  puntosGrafica: number[] = [];
+  rebotesGrafica: number[] = [];
+  asistenciasGrafica: number[] = [];
 
   constructor(private router: ActivatedRoute, private http: HttpClient) {}
 
@@ -227,11 +236,15 @@ export class JugadorComponent {
       return acumulador + minutosTotales;
     }, 0);
     this.totalParaTabla.minutosJugados = parseFloat(totalMinutosJugados.toFixed(2));
-}
-
+  }
   
   calcularDatosTabla(juegos: any){
     this.juegosDatos = []
+    this.fechaGrafica = [];
+    this.minutosGrafica = [];
+    this.puntosGrafica = [];
+    this.rebotesGrafica = [];
+    this.asistenciasGrafica = [];
     for(let juego of juegos){
       const dato = {
         vs: juego.equipoRival.nombreEquipo,
@@ -244,6 +257,15 @@ export class JugadorComponent {
         rebo: juego.rebotes,
         ast: juego.asistencias
       }
+      // Asumiendo que `juego.fecha` es un objeto de tipo Date
+      const formattedDate = new Date(juego.fecha).toLocaleDateString('es-ES', { day: '2-digit', month: 'short' });
+
+      // Añade la fecha formateada al array
+      this.fechaGrafica.push(formattedDate);
+      this.minutosGrafica.push(dato.minjug);
+      this.puntosGrafica.push(dato.pts);
+      this.rebotesGrafica.push(dato.rebo);
+      this.asistenciasGrafica.push(dato.ast);
       this.juegosDatos.push(dato)
     }
   }
