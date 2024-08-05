@@ -99,8 +99,8 @@
       </div>
       <button type="submit">Crear Partido</button>
     </div>
+    <div *ngIf="successMessage" class="success-message">
+      {{ successMessage }}
+    </div>
   </form>
-  <div *ngIf="successMessage" class="success-message">
-    {{ successMessage }}
-  </div>
 </div>

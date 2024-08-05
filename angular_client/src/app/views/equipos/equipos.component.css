@@ -7,7 +7,20 @@
 .equipos-contenedor{
   display: flex;
   gap: 30px;
-  
 }
 
+.team-comp{
+  min-height: 1000px;
+}
 
+@media screen and (max-width: 1000px) {
+  .team-comp{
+    min-height: 700px;
+  } 
+}
+
+@media screen and (max-width: 800px) {
+  .team-comp{
+    min-height: 500px;
+  } 
+}

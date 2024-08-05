@@ -27,10 +27,8 @@ export class EquipoComponent {
       this.equipoId = params['id'];
       const jugadoresUrl = `${this.baseUrl}/usuarios/equipo/${this.equipoId}`;
       const equipoUrl = `${this.baseUrl}/equipos/${this.equipoId}`;
-      console.log(jugadoresUrl, ' -- ', equipoUrl)
       this.obtenerJugadoresPorEquipo(jugadoresUrl).subscribe(
         (res) => {
-          console.log(res);
           this.jugadores = res;
         },
         (err) => {
@@ -48,9 +46,8 @@ export class EquipoComponent {
   obtenerEquipo(url: string) {
     this.http.get(url).subscribe(
       (data: any) => {
-        console.log(data.nombreEquipo);
         this.nombreEquipo = data.nombreEquipo;
-      },
+      },  
       (err) => {
         console.log(err);
       }

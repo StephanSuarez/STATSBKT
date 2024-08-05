@@ -20,7 +20,6 @@ export class CardTeamComponent implements OnInit {
     if (this.equipo && this.equipo.escudo) {
       this.equipo.escudo = this.sanitizer.bypassSecurityTrustUrl(this.equipo.escudo);
     }
-    console.log(this.equipo.escudo);
   }
 
   goToView(equipoId: string): void {

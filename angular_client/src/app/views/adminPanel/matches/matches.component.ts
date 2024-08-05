@@ -80,14 +80,16 @@ export class MatchesComponent {
     this.match.victoria = this.resultGrame == "victoria" ? true : false;
 
     this.enviarDatos(this.match);
-    this.successMessage = "Juego registrado correctamente"
     this.limpiarFormulario()
   }
 
   enviarDatos(data: any) {
     this.http.post(`${this.baseUrl}/juegos`, data).subscribe(
       (res) => {
-        console.log(res);
+        this.successMessage = 'Jugador añadido correctamente';
+        setTimeout(() => {
+          this.successMessage = null;
+        }, 3000);
       },
       (err) => {
         console.log(err);
