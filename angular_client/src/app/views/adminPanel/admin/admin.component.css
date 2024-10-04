@@ -6,6 +6,14 @@ body {
   padding: 0;
 }
 
+section#admin-section{
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
 h2 {
   font-size: 36px;
   margin: 20px 0;
