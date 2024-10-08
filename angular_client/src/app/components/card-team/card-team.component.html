@@ -1,0 +1,11 @@
+<div class="equipo-card">
+    <div (click)="goToView(equipo.id)">
+      <div class="equipo-image">
+        <img [src]="equipo.escudo" [alt]="equipo.nombreEquipo">
+      </div>
+      <div class="equipo-details">
+        <h2 class="equipo-name">{{ equipo.nombreEquipo }}</h2>
+      </div>
+    </div>
+  </div>
+  

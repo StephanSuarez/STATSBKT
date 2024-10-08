@@ -1,0 +1,15 @@
+
+<div class="team-comp">
+  <section id="equipos-componente">
+    <h2>Equipos</h2>
+    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Necessitatibus suscipit non maiores. Natus beatae dolores cupiditate sapiente consectetur qui, doloremque officiis! Culpa similique ea sint fugit dolorum officiis autem cumque.</p>
+    <div style="margin: auto; max-width: 1000px;" class="equipos-contenedor">
+      <div class="equipo-contenedor" *ngFor="let equipo of equipos">
+        <app-card-team [equipo]="equipo"></app-card-team>
+      </div>
+      <div (click)="irAdEquipos()" *ngIf="adminLogeado">
+        <app-plus></app-plus>
+      </div>
+    </div>
+  </section>
+</div>

@@ -1,0 +1,36 @@
+[33m60a4721[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mfeature/s3img[m[33m)[m Elimina las claves de AWS del código
+[33meee6b51[m feature/s3img. Team upload img in s3 and reading
+[33m097864b[m[33m ([m[1;31morigin/feature/s3img[m[33m, [m[1;32mmain[m[33m)[m working in feature/add img s3
+[33me91168f[m[33m ([m[1;31morigin/main[m[33m)[m graph  ready
+[33mc089d22[m graph ln ready
+[33m896d875[m total an avg fisnish > next > graphs
+[33mc814df7[m working on total and avrg of users table
+[33mdb39b9f[m details in table player, add total and average
+[33m48ea364[m ready, see details
+[33ma31d228[m working on leads, back ready, remember make tc in players table
+[33md715ad6[m working on top 3 of rbt, ast, pts
+[33mbfeade9[m filter by category is completed
+[33m2486da6[m table for user data is completed, making filter by category
+[33m92e8562[m form about players has been complete > next > finish player view
+[33m6e2369e[m Merge pull request #6 from StephanSuarez/feature/jugador
+[33mb6c3e6e[m Merge pull request #5 from Daniel08M/main
+[33mdc68224[m[33m ([m[1;31morigin/feature/jugador[m[33m, [m[1;32mfeature/jugador[m[33m)[m se cargaron datos de jugador en la vista, trabajando en la tabla
+[33m9be7ea9[m se cambió panel administrador
+[33m72951ce[m working with data users in player view
+[33m9f08033[m working
+[33m8f23ed3[m[33m ([m[1;31morigin/httpclient[m[33m, [m[1;32mhttpclient[m[33m)[m httpclient for teams
+[33m95d3180[m Merge pull request #4 from Daniel08M/main
+[33mf9cec50[m arreglar detalles barra navegacion
+[33m5e8e133[m working with views
+[33m5cdafeb[m Merge pull request #3 from Daniel08M/daniel
+[33mc49a555[m pamsito
+[33md565241[m Merge branch 'StephanSuarez:main' into daniel
+[33me08576c[m abc
+[33m36bf73d[m admins views
+[33m11086ef[m Merge pull request #1 from Daniel08M/main
+[33m7e31d35[m Merge branch 'StephanSuarez:main' into main
+[33ma02a898[m trabajando en el diseño de las vistas
+[33m2789930[m crud crated for modules: users, teams, games, and partially for admin
+[33md082068[m mejorar vistas
+[33md3feeb2[m initial commit
+[33m54b9ff1[m initial commit

@@ -1,0 +1,409 @@
+.player-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #121212;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden; /* Ensure the background image doesn't overflow the container */
+}
+
+.player-header {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.background-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 10px 10px 0 0;
+}
+
+.team-logo img {
+  width: 60px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.player-avatar img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.player-info-header {
+  text-align: center;
+  flex: 1;
+}
+
+.player-info-header h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.player-info-header h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.player-name h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.player-name p {
+  font-size: 1.2em;
+  margin: 0;
+  color: #888;
+}
+
+.player-details, .player-extra-stats {
+  width: 100%;
+  padding: 20px;
+  background-color: #121212; /* Ensure the rest of the card has the black background */
+}
+
+.player-stats, .player-extra-stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.player-stats .stat, .player-extra-stats .stat {
+  text-align: center;
+}
+
+
+/* Ranking table styles */
+.ranking-container {
+  width: 100%;
+  margin: 0 auto;
+}
+
+.table-card {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
+  background-color: #f5f5f5;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-card th, .table-card td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+.table-card th {
+  background-color: #333;
+  color: #fff;
+}
+
+.table-card tr:nth-child(even) {
+  background-color: #f9f9f9;
+}
+
+.table-card tr:hover {
+  background-color: #ddd;
+}
+
+.table-card td a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #333;
+  text-decoration: none;
+}
+
+.table-card .team-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .ranking-title {
+    font-size: 20px;
+  }
+
+  .table-card th, .table-card td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .table-card .team-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .prev, .next {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .numbertext, .text {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+select {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+select option {
+  background-color: #333;
+  color: #fff;
+}
+
+select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.table-card {
+  background-color: #333;
+  border: 1px solid #444;
+}
+
+.table-card th, .table-card td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+  color: #fff;
+}
+
+.table-card th {
+  background-color: #444;
+}
+
+.table-card tr:nth-child(even) {
+  background-color: #3a3a3a;
+}
+
+.table-card tr:hover {
+  background-color: #555;
+}
+
+.player-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #121212;
+  color: #fff;
+  border-radius: 10px;
+  overflow: hidden;
+}
+
+.player-header {
+  width: 100%;
+  background-color: #333;
+  color: #fff;
+  padding: 20px;
+  border-bottom: 1px solid #333;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: relative;
+}
+
+.background-image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  z-index: -1;
+  border-radius: 10px 10px 0 0;
+}
+
+.team-logo img {
+  width: 60px;
+  position: absolute;
+  top: 20px;
+  left: 20px;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.player-avatar img {
+  width: 180px;
+  height: 180px;
+  border-radius: 50%;
+  object-fit: cover;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+.player-info-header {
+  text-align: center;
+  flex: 1;
+}
+
+.player-info-header h1 {
+  font-size: 3em;
+  margin: 0;
+}
+
+.player-info-header h2 {
+  font-size: 1.5em;
+  margin: 0;
+}
+
+.player-name h1 {
+  font-size: 2.5em;
+  margin: 0;
+}
+
+.player-name p {
+  font-size: 1.2em;
+  margin: 0;
+  color: #888;
+}
+
+.player-details, .player-extra-stats {
+  width: 100%;
+  padding: 20px;
+  background-color: #121212;
+}
+
+.player-stats, .player-extra-stats {
+  display: flex;
+  justify-content: space-around;
+  width: 100%;
+}
+
+.player-stats .stat, .player-extra-stats .stat {
+  text-align: center;
+}
+
+.ranking-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 10px;
+}
+
+select {
+  background-color: #333;
+  color: #fff;
+  border: 1px solid #555;
+  padding: 10px;
+  border-radius: 5px;
+  font-size: 16px;
+}
+
+select option {
+  background-color: #333;
+  color: #fff;
+}
+
+select:focus {
+  outline: none;
+  border-color: #888;
+}
+
+.table-card {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+  margin: 0 auto;
+  background-color: #333;
+  border: 1px solid #444;
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.table-card th, .table-card td {
+  padding: 15px;
+  text-align: center;
+  border-bottom: 1px solid #444;
+  color: #fff;
+}
+
+.table-card th {
+  background-color: #444;
+}
+
+.table-card tr:nth-child(even) {
+  background-color: #3a3a3a;
+}
+
+.table-card tr:hover {
+  background-color: #555;
+}
+
+.table-card td a {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #fff;
+  text-decoration: none;
+}
+
+.table-card .team-logo {
+  width: 30px;
+  height: 30px;
+  margin-right: 10px;
+}
+
+@media (max-width: 600px) {
+  .ranking-title {
+    font-size: 20px;
+  }
+
+  .table-card th, .table-card td {
+    padding: 10px;
+    font-size: 14px;
+  }
+
+  .table-card .team-logo {
+    width: 20px;
+    height: 20px;
+  }
+
+  .prev, .next {
+    padding: 12px;
+    font-size: 14px;
+  }
+
+  .numbertext, .text {
+    font-size: 12px;
+    padding: 6px 10px;
+  }
+}
+
+.ranking-container {
+  width: 100%;
+  margin: 20px auto;
+  padding: 0 10px;
+}

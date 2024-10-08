@@ -1,0 +1,50 @@
+section {
+  width: 100%;
+  max-width: 1250px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.jugadores-container {
+  margin: 0 auto;
+  display: flex;
+  flex-wrap: wrap;
+  max-width: 900px;
+  gap: 16px; /* Espacio entre las columnas y las cartas */
+  justify-content: center;
+}
+
+.jugadores {
+  display: flex;
+  justify-content: center;
+  flex: 1 1 calc(50% - 16px); /* Dos columnas con espacio */
+  box-sizing: border-box;
+  max-width: calc(50% - 16px);
+  margin: 8px 0; /* Espacio entre las filas */
+}
+
+.compot {
+  min-height: 1000px;
+}
+
+@media screen and (max-width: 1000px) {
+  .jugadores {
+    flex: 1 1 calc(100% - 16px); /* Una columna en pantallas más pequeñas */
+    max-width: calc(100% - 16px);
+  }
+}
+
+@media screen and (max-width: 800px) {
+  .compot {
+    min-height: 500px;
+  }
+
+  section {
+    padding: 0 10px;
+  }
+
+  .jugadores-container {
+    max-width: 100%;
+  }
+}

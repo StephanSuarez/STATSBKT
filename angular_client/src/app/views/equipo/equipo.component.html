@@ -1,0 +1,12 @@
+<section class="compot">
+  <h1>{{ nombreEquipo }}</h1>
+
+  <div class="jugadores-container">
+    <div class="jugadores" *ngFor="let jugador of jugadores">
+      <app-player-card [player]="jugador"></app-player-card>
+    </div>
+    <div *ngIf="jugadores.length == 0">
+      <p>No hay jugadores inscritos en este equipo</p>
+    </div>
+  </div>
+</section>

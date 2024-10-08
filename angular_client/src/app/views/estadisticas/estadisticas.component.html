@@ -1,0 +1,33 @@
+<div class="estadisticas-container">
+  <div class="contenedor">
+    <h2 class="estadisticas-title">Estadísticas</h2>
+    <!-- Otro contenido aquí -->
+  </div>
+  
+  <div class="estadisticas-text">
+    <p>Ranking por equipos segun su promedio de puntos.</p>
+  </div>
+  <table class="stats-table">
+    <thead>
+      <tr>
+        <th>Equipo</th>
+        <th>Promedio de Puntos</th>
+        <th>Victorias</th>
+        <th>Pérdidas</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let topE of topEquipo">
+        <td>
+          <a [href]="equipoUrl+topE.equipo.id">
+            <img [src]="topE.equipo.escudo" alt="Logo" class="team-logo">
+            {{ topE.equipo.nombreEquipo }}
+          </a>
+        </td>
+        <td>{{ topE.promedioPuntos }}</td>
+        <td>{{ topE.victorias }}</td>
+        <td>{{ topE.derrotas }}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>

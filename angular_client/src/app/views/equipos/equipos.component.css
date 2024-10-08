@@ -1,0 +1,28 @@
+#equipos-componente{
+  max-width: 1250px;
+  margin: 0 auto;
+  margin-top: 50px;
+}
+
+.equipos-contenedor{
+  display: flex;
+  gap: 30px;
+  flex-wrap: wrap;
+  justify-content: start;
+}
+
+.team-comp{
+  min-height: 1000px;
+}
+
+@media screen and (max-width: 1000px) {
+  .team-comp{
+    min-height: 700px;
+  } 
+}
+
+@media screen and (max-width: 800px) {
+  .team-comp{
+    min-height: 500px;
+  } 
+}

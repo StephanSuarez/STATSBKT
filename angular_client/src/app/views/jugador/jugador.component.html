@@ -1,0 +1,111 @@
+<div class="player-profile">
+  <div class="player-header">
+    <div class="background-image">
+      <img [src]="player.fondo" alt="Background Image">
+    </div>
+    <div class="team-logo">
+      <img [src]="equipoJugador.escudo" alt="Team Logo">
+      <!-- <img [src]="equipoJugador.escudo" alt="Team Logo"> -->
+    </div>
+    <div class="player-avatar">
+      <img [src]="jugador.avatarImg" alt="Avatar de {{ player.name }}">
+    </div>
+    <div class="player-info-header">
+      <h2>{{ equipoJugador?.nombreEquipo }} | #{{ jugador?.numero }} | {{ jugador?.position }}</h2>
+      <h1>{{ jugador?.nombreUsuario }}</h1>
+      <p>{{ jugador?.nickname }}</p>
+    </div>
+  </div>
+  <div class="player-details">
+    <div class="player-stats">
+      <div class="stat">
+        <h3>Puntos</h3>
+        <p>{{ datosPromedio.puntos }}</p>
+      </div>
+      <div class="stat">
+        <h3>Asistencias</h3>
+        <p>{{ datosPromedio.asistencias }}</p>
+      </div>
+      <div class="stat">
+        <h3>Rebotes</h3>
+        <p>{{ datosPromedio.rebotes }}</p>
+      </div>
+    </div>
+  </div>
+  <div class="player-extra-stats">
+    <div class="stat">
+      <h4>Minutos Jugados</h4>
+      <p>{{ datosPromedio.minutosJugados }}</p>
+    </div>
+    <div class="stat">
+      <h4>Total de Partidos</h4>
+      <p>{{ datosPromedio.totalPartidos }}</p>
+    </div>
+  </div>
+  <div class="ranking-container">
+    <select [(ngModel)]="selectedCategory" (ngModelChange)="onCategoryChange($event)">
+      <option *ngFor="let category of categories" [value]="category">{{ category }}</option>
+    </select>
+    
+    
+    <table class="table-card">
+      <thead>
+        <tr>
+          <th>VS</th>
+          <th>MIN</th>
+          <th>PTS</th> <!-- PUNTOS TOTALES -->
+          <th>TC</th> <!--TIROS DE CAMPO -->
+          <th>2PTS</th>
+          <th>3PTS</th>
+          <th>TL</th> <!--TIROS DE CAMPO -->
+          <th>REBO</th>
+          <th>AST</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let juego of juegosDatos">
+          <td>{{ juego.vs }}</td>
+          <td>{{ juego.minjug }}</td>
+          <td>{{ juego.pts }}</td>
+          <td>{{ juego.tc }}</td> 
+          <td>{{ juego.dosPts }}</td> 
+          <td>{{ juego.tresPts }}</td> 
+          <td>{{ juego.tl }}</td> 
+          <td>{{ juego.rebo }}</td> 
+          <td>{{ juego.ast }}</td> 
+        </tr>
+        <tr>
+          <td>Total</td>
+          <td>{{ totalParaTabla.minutosJugados }}</td>
+          <td>{{ totalParaTabla.puntos }}</td>
+          <td>{{ totalParaTabla.tirosTotales }}</td>
+          <td>{{ totalParaTabla.tirosdos }}</td>
+          <td>{{ totalParaTabla.tirostres }}</td>
+          <td>{{ totalParaTabla.tirosLibres }}</td>
+          <td>{{ totalParaTabla.rebotes }}</td>
+          <td>{{ totalParaTabla.asistencias }}</td>
+        </tr>
+        <tr>
+          <td>Promedio</td>
+          <td>{{ datosPromedioTabla.minutosJugados }}</td>
+          <td>{{ datosPromedioTabla.puntos }}</td>
+          <td>{{ datosPromedioTabla.tirosTotales }}</td>
+          <td>{{ datosPromedioTabla.tirosdos }}</td>
+          <td>{{ datosPromedioTabla.tirostres }}</td>
+          <td>{{ datosPromedioTabla.tirosLibres }}</td>
+          <td>{{ datosPromedioTabla.rebotes }}</td>
+          <td>{{ datosPromedioTabla.asistencias }}</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div class="graphs">
+    <app-line
+      [fechaGrafica]="fechaGrafica"
+      [minutosGrafica]="minutosGrafica"
+      [puntosGrafica]="puntosGrafica"
+      [rebotesGrafica]="rebotesGrafica"
+      [asistenciasGrafica]="asistenciasGrafica"></app-line>
+    <!-- <app-bar></app-bar> -->
+  </div>
+</div>

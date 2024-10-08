@@ -1,0 +1,89 @@
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: #f0f2f5;
+  color: #333;
+  margin: 0;
+  padding: 0;
+}
+
+section#admin-section{
+  height: 85vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+h2 {
+  font-size: 36px;
+  margin: 20px 0;
+  text-align: center;
+}
+
+p {
+  text-align: center;
+  font-size: 26px;
+  max-width: 1000px;
+  margin: 0 auto 10px;
+}
+
+.admin-panel {
+  max-width: 1000px;
+  margin: 0 auto;
+  padding: 40px;
+  /* Eliminamos el fondo negro y el color del texto */
+  background-color: transparent;
+  color: #333; /* Restauramos el color del texto al valor por defecto */
+  border-radius: 10px;
+  box-shadow: none; /* Eliminamos la sombra */
+  text-align: center;
+}
+
+.admin-panel h2 {
+  margin-bottom: 30px;
+  color: #333; /* Restauramos el color del texto */
+}
+
+.card-container {
+  display: flex;
+  justify-content: space-around;
+  flex-wrap: wrap;
+  gap: 20px;
+}
+
+.card {
+  background-color: #fff;
+  width: 250px;
+  height: 300px;
+  margin: 20px;
+  border-radius: 10px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  cursor: pointer;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  text-align: center;
+}
+
+.card img {
+  width: 100%; /* Ajusta el ancho de la imagen */
+  height: 230px; /* Ajusta la altura de la imagen */
+  object-fit: cover;
+}
+
+.card p {
+  color: #000000;
+  font-size: 29px; /* Tamaño de la fuente del texto */
+  margin: 10px 0;
+  padding: 0 10px;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.3);
+}
+
+@media (max-width: 768px) {
+  .card {
+      width: 100%;
+  }
+}
