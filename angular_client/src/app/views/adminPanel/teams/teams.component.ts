@@ -34,12 +34,18 @@ export class TeamsComponent {
   onSubmit() {
     if(this.selectedFile){
       this.s3UploadService.uploadTeamFile(this.selectedFile).subscribe({
-        next: (response: any) =>{
+        next: (response: any) => {
           const s3Url = `https://statsbkt-bucket-imgs-public.s3.amazonaws.com/teams/${this.selectedFile!.name}`;
           this.team.escudo = s3Url;
           this.saveTeamData();
+        },
+        error: (error) => {
+          console.error('Error al subir el archivo:', error);
         }
-      })
+      });
+    } else {
+      // Manejar el caso cuando no hay archivo seleccionado
+      console.warn('No se ha seleccionado ningún archivo');
     }
   }
 

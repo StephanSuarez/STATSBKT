@@ -14,10 +14,9 @@ export class HomeComponent {
 
 
   sliderImages = [
+    { src: 'assets/imgs/team.jpeg', caption: 'Caption Two' },
     { src: 'assets/imgs/escudos/fondoU.png', caption: 'Caption One' },
-    { src: 'assets/imgs/danielmora.png', caption: 'Caption Two' },
-    { src: 'assets/logo.jpg', caption: 'Caption Three' },
-    { src: 'assets/imgs/escudos/fondoU.png', caption: 'Caption Four' },
+    { src: 'assets/imgs/team.jpeg', caption: 'Caption Two' },
     { src: 'assets/imgs/escudos/fondoU.png', caption: 'Caption Five' }
   ];
 
