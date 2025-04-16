@@ -1,27 +1,94 @@
-# Img
+# STATSBKT Client
 
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 17.3.7.
+<div align="center">
+  <img src="https://angular.io/assets/images/logos/angular/angular.svg" width="150" alt="Angular Logo" />
+  
+  [![Angular Version](https://img.shields.io/badge/Angular-17.3.7-red.svg)](https://angular.io/)
+  [![License](https://img.shields.io/badge/License-MIT-blue.svg)](LICENSE)
+</div>
 
-## Development server
+## 📋 Descripción
 
-Run `ng serve` for a dev server. Navigate to `http://localhost:4200/`. The application will automatically reload if you change any of the source files.
+Frontend del proyecto STATSBKT desarrollado con [Angular](https://angular.io/), un framework de desarrollo web moderno y robusto para crear aplicaciones de una sola página (SPA).
 
-## Code scaffolding
+## 🚀 Inicio Rápido
 
-Run `ng generate component component-name` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module`.
+### Prerrequisitos
 
-## Build
+- Node.js (v16 o superior)
+- npm (v7 o superior)
+- Angular CLI (v17.3.7 o superior)
 
-Run `ng build` to build the project. The build artifacts will be stored in the `dist/` directory.
+### Instalación
 
-## Running unit tests
+```bash
+# Instalar dependencias
+npm install
 
-Run `ng test` to execute the unit tests via [Karma](https://karma-runner.github.io).
+# Iniciar servidor de desarrollo
+ng serve
+```
 
-## Running end-to-end tests
+Navega a `http://localhost:4200/`. La aplicación se recargará automáticamente si modificas algún archivo fuente.
 
-Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To use this command, you need to first add a package that implements end-to-end testing capabilities.
+## 🛠️ Desarrollo
 
-## Further help
+### Generación de Componentes
 
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+```bash
+# Generar un nuevo componente
+ng generate component nombre-componente
+
+# Otras opciones disponibles
+ng generate directive|pipe|service|class|guard|interface|enum|module
+```
+
+### Construcción
+
+```bash
+# Construir para producción
+ng build
+
+# Construir con optimizaciones
+ng build --configuration production
+```
+
+Los artefactos de construcción se almacenarán en el directorio `dist/`.
+
+## 🧪 Testing
+
+### Tests Unitarios
+
+```bash
+# Ejecutar tests unitarios
+ng test
+```
+
+Los tests se ejecutan mediante [Karma](https://karma-runner.github.io).
+
+### Tests End-to-End
+
+```bash
+# Ejecutar tests e2e
+ng e2e
+```
+
+Para usar este comando, primero necesitas agregar un paquete que implemente capacidades de testing end-to-end.
+
+## 📚 Documentación
+
+Para más información sobre Angular CLI:
+- Usa `ng help`
+- Visita la [Documentación Oficial de Angular CLI](https://angular.io/cli)
+
+## 🛠️ Tecnologías Principales
+
+- [Angular](https://angular.io/) - Framework de desarrollo web
+- TypeScript - Lenguaje de programación
+- RxJS - Librería de programación reactiva
+- Angular Material - Componentes UI
+- Karma - Framework de testing
+
+## 📄 Licencia
+
+Este proyecto está bajo la Licencia MIT - ver el archivo [LICENSE](LICENSE) para más detalles.
